@@ -22,6 +22,8 @@
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/88x31.png" /></a>
 #+end_html
 
+** Goal
+
 The aim of this short 15-hour course is to present the fundamental
 philosophy behind *literate programming* to conduct a faithful and
 reproducible data analysis, using sound statistical procedures and
@@ -29,7 +31,7 @@ modern data analytics tools. The course is based on Rstudio as IDE and
 using the R programming language for data analysis. Every lecture will
 be backed up with practical sessions and worked out examples.
 
-These are the topics:
+** Topics
 
 1. General Introduction - Course overview, goals, references and reproducibility (2h)
 2. Literate Programming - Literate Programming Motivation & RStudio Case Study (3h)
@@ -37,7 +39,8 @@ These are the topics:
 4. Data Representation - Checklist for good graphics & the ggplot2 package (3h)
 5. Probability / Statistics - an Introduction to Statistics and Probalistic Modeling (4h)
 
-Schedule:
+
+** Schedule
 
 |-------------------+------------+--------|
 | Date              | Room       | Topics |
@@ -49,3 +52,17 @@ Schedule:
 | 01/11 (Wednesday) | AUD-1      |      5 |
 |-------------------+------------+--------|
 
+** References
+
+- Literate Programming. Donald E. Knuth (Stanford, California)
+  (CSLI Lecture Notes, no. 27.). ISBN 0-937073-80-6.
+- Applied Statistics and Probability for Engineers 6th Edition. 
+  Douglas C. Montgomery (Author), George C. Runger. Wiley.
+- R for Data Science. Garrett Grolemund, Hadley
+  Wickham. http://r4ds.had.co.nz/
+
+** Contato
+
+Get in touch with us
+- [[http://www.inf.ufrgs.br/~schnorr][Prof. Lucas (http://www.inf.ufrgs.br/~schnorr)]]
+- [[http://mescal.imag.fr/membres/jean-marc.vincent/index.html/][Prof. Jean-Marc Vincent (http://mescal.imag.fr/membres/jean-marc.vincent/)]]
