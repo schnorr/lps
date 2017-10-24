@@ -1,0 +1,41 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Literate Programming and Statistics \linebreak (CMP595 PPGC/INF/UFRGS)
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
+#+OPTIONS:   H:1 author:nil date:nil num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+\institute{UFRGS \& UGA/LIG/Inria}
+\date{October 2017}
+%\titlegraphic{\includegraphics[width=2cm]{./logos/logo_UFR_IM2AG.jpg}}
+\maketitle
+}
+#+END_EXPORT
+
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+
+\titlegraphic{
+    \includegraphics[scale=1.4]{./logo/ufrgs2.png}
+    \hspace{1cm}
+    \includegraphics[scale=1]{./logo/licia-small.png}
+    \hspace{1cm}
+    \includegraphics[scale=0.3]{./logo/uga.png}
+}
+\maketitle
+}
+#+END_EXPORT
