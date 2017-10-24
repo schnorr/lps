@@ -1,0 +1,53 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Motivation for a Rigourous Analysis \linebreak (CMP595 PPGC/INF/UFRGS)
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+LATEX_HEADER: \input{org-babel.tex}
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+
+\titlegraphic{
+    \includegraphics[scale=1.4]{./logo/ufrgs2.png}
+    \hspace{1cm}
+    \includegraphics[scale=1]{./logo/licia-small.png}
+    \hspace{1cm}
+    \includegraphics[scale=0.3]{./logo/uga.png}
+}
+\maketitle
+}
+#+END_EXPORT
+
+* A Critical Look to the News
+
+#+BEGIN_EXPORT latex
+\includegraphics[width=0.4\linewidth]{./img/Resultats1.png}\hfill\pause \includegraphics[width=0.4\linewidth]{./img/Resultats2.png}
+#+END_EXPORT
+
+* Another critical look
+
+- Performance \url{http://www.cpubenchmark.net/index.php}
+- Spurious correlations \url{http://www.tylervigen.com/spurious-correlations}
+- \url{https://www.ined.fr/fr/tout-savoir-population/}
+- taux de réussite au Bac
+
+
+* Yet another critical look
+
+#+BEGIN_EXPORT latex
+\includegraphics[width=0.8\linewidth]{./img/2380774-ide-chomage-dec-2013-jpg_2048700.jpg}  \\
+Extrait du journal Le Point 2013
+#+END_EXPORT
+
