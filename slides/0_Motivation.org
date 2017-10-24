@@ -56,7 +56,7 @@ Monday morning
 #+END_CENTER
 
 #+ATTR_LATEX: :width .8\linewidth
-[[./img/Resultats1.png]]
+[[./img/Resultats2.png]]
 
 * Another critical look
 
