@@ -47,8 +47,7 @@ be backed up with practical sessions and worked out examples.
    - Introduction & Data Characterization
    - Import and Tidy Data
    - Data Manipulation Workflow (groups, summarize)
-   - Hands-on
-     - [[https://www.insee.fr/fr/statistiques/2540004][Fichier des prénoms Édition 2016]] (French first names in 2015)
+   - Hands-on: [[https://www.insee.fr/fr/statistiques/2540004][Fichier des prénoms Édition 2016]] (French first names in 2015)
    - Mid-term activity (for next week)
      - Goal: Analysis of Urban Accidents in Porto Alegre
        - We attribute to each student a year
