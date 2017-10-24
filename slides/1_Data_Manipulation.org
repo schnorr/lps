@@ -30,27 +30,19 @@
 }
 #+END_EXPORT
 
-* Motivation                                                       :noexport:
+* Motivation
 /Institut national de la statistique et des études économiques/
-- First names given to newborns along years (/par départements français/)
+- First names given to newborns (/par départements français par année/)
 - [[https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
   - It has 3405311 rows (and one header line), 5 variables
 
-\vfill
+#+Latex: \vfill
 
-\bgroup
-\scriptsize
-#+begin_src R :results output silent :session :exports none
+#+BEGIN_EXAMPLE
 library(readr);
 df <- read_tsv (file = "/tmp/dpt2015.txt",
                 locale = locale(encoding = "ISO-8859-1"));
-#+end_src
-
-#+begin_src R :results output latex :session :exports both
-library(xtable);
-df %>% sample_n(6) %>% as.data.frame() %>% xtable(.);
-#+end_src
-\egroup
+#+END_EXAMPLE
 
 #+RESULTS:
 #+BEGIN_EXPORT latex
@@ -102,7 +94,11 @@ These are the basic verbs
 - =mutate()=: create new columns
 - =summarize()=: summarize values
 - =group_by()=: group operations using /split-apply-combine/
+
+#+BEGIN_CENTER
 _[[https://github.com/schnorr/proglit/blob/master/TD5/TD5.Rmd][Let's see them in action now]]_ \to =TD5.Rmd=
+#+END_CENTER
+
 
 # - La frequence de prénons évolue au cours du temps?
 # - Qu'est qu'on peut dire sur "Jean-Marc" au cours du temps?
@@ -137,26 +133,4 @@ Tools/packages
 - [[https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html][magrittr]]
 - [[https://github.com/hadley/dplyr][dplyr]]
 
-* Emacs Setup                                                      :noexport:
-  This document has local variables in its postembule, which should
-  allow org-mode to work seamlessly without any setup. If you're
-  uncomfortable using such variables, you can safely ignore them at
-  startup. Exporting may require that you copy them in your .emacs.
 
-# Local Variables:
-# eval:    (require 'org-install)
-# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (sh . t) (R . t) (perl . t) (ditaa . t) ))
-# eval:    (setq org-confirm-babel-evaluate nil)
-# eval:    (setq org-alphabetical-lists t)
-# eval:    (setq org-src-fontify-natively t)
-# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
-# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
-# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
-# eval:   (setq org-babel-default-header-args:R '((:session . "org-R")))
-# eval:   (setq org-export-babel-evaluate nil)
-# eval:   (setq ispell-local-dictionary "american")
-# eval:   (eval (flyspell-mode t))
-# eval:   (setq org-latex-title-command "")
-# eval:    (setq org-latex-listings 'minted)
-# eval:    (setq org-latex-minted-options '(("style" "tango") ("numbers" "none") ("numbersep" "5pt")))
-# End:
