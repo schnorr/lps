@@ -41,6 +41,8 @@ be backed up with practical sessions and worked out examples.
    - Why R? RStudio. ([[./slides/0_WhyR.pdf][PDF]])
    - Hands-on: Using RStudio for running a Statistical Analysis
      - [[./handson/0_TD.Rmd][Given Example Analysis]]
+     - Data set #1: ping-pong measurements
+     - Data set #2: iteration duration of a geophysics application
 3. Data Carpentry and Manipulation - Clean-up data, and using the dplyr R package
 4. Data Representation - Checklist for good graphics & the ggplot2 package
 5. Probability / Statistics - an Introduction to Statistics and Probalistic Modeling
