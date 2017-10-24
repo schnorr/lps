@@ -1,0 +1,44 @@
+---
+title: "Urban Accidents in the City of Porto Alegre"
+author: "Jean-Marc Vincent, Lucas Mello Schnorr"
+date: "October 2017"
+output:
+  pdf_document:
+    number_sections: yes
+  html_document: default
+geometry: margin=1.5in, top=0.5in, bottom=0.5in
+---
+
+Each student should provide a Rmd file with _two_ to _four_ plots, with text describing the semantics of the data, the question, how they have answered the question, and an explanation for each figure, showing how that particular figure helps the answering of the initial question.  Fork the LPS repository in GitHub, push your Rmd solution there. Send us, by e-mail, the link for your GIT repository, indicating the PATH to the Rmd file. Check the LPS website for the deadline.
+
+# Introduction
+
+The City of Porto Alegre, under the transparency law, has provided a data set with all the urban accidents (within the city limits) since 2000. The data set, including a description of each column in the PDF file format, is available in the following website:
+
+http://www.datapoa.com.br/dataset/acidentes-de-transito
+
+# Goal
+
+For a given year (defined by the LPS coordination for each student enrolled in the cursus), the goal is to answer one of the following questions. The solution must use the data import and manipulation verbs of the R programming language and the tidyverse metapackage (readr, tidyr, dplyr) using Literate Programming.
+
+# Questions
+
+1. What is the time of the day with most accidents?
+2. How many vehicles are involved in the accidents?
+3. What types of accidents are more common?
+4. Is the number of deaths increasing or decreasing?
+5. Is there a street of the city with more accidents than others?
+6. Do holidays impact in the number of accidents?
+
+# Download the data
+
+Supposing you have the URL for the CSV file, you can read the data using the code below. You can also download it manually and commit it to your repository to avoid an internet connection every time you knit this file. If the URL changes, the second solution might even make your analysis be more portable in time.
+
+```{r}
+library(readr)
+URL <- "http://www.opendatapoa.com.br/storage/f/2013-11-06T17%3A26%3A29.293Z/acidentes-2000.csv"
+df <- read_delim(URL, delim=";")
+df
+```
+
+
