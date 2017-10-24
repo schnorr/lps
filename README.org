@@ -45,6 +45,7 @@ be backed up with practical sessions and worked out examples.
      - Data set #2: iteration duration of a geophysics application
 3. Data Carpentry and Manipulation - Clean-up data, and using the dplyr R package
 4. Data Representation - Checklist for good graphics & the ggplot2 package
+   - Data Quality
 5. Probability / Statistics - an Introduction to Statistics and Probalistic Modeling
 
 ** Schedule
