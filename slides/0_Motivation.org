@@ -65,7 +65,6 @@ Monday morning
 - \url{https://www.ined.fr/fr/tout-savoir-population/}
 - taux de réussite au Bac
 
-
 * Yet another critical look
 
 #+BEGIN_CENTER
