@@ -35,7 +35,7 @@ be backed up with practical sessions and worked out examples.
 
 1. General Introduction
    - [[./slides/0_Introduction.org][Course overview, goals, references]] ([[./slides/0_Introduction.pdf][PDF]])
-   - [[./slides/0_Motivation.org][Motivation for a Rigourous Analysis]]
+   - [[./slides/0_Motivation.org][Motivation for a Rigourous Analysis]] ([[./slides/0_Motivation.pdf][PDF]])
 2. Literate Programming - Literate Programming Motivation & RStudio Case Study
    - Reproducibility and Literate Programming
    - Why R? RStudio.
