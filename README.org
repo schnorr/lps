@@ -48,17 +48,16 @@ be backed up with practical sessions and worked out examples.
    - Import and Tidy Data
    - [[./slides/1_Data_Manipulation.org][Data Manipulation Workflow]] (groups, summarize) ([[./slides/1_Data_Manpilation.pdf][PDF]])
    - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
-   - Mid-term activity (for next week)
-     - Goal: Analysis of Urban Accidents in Porto Alegre
-       - We attribute to each student a year
-       - Each one choose one question
-         |------+------+----------+-----------------------------|
-         | Name | Year | Question | Before Saturday Night (Rmd) |
-         |------+------+----------+-----------------------------|
-       - Each student should provide a Rmd file with two to four
-         plots, with text describing the semantics of the data, the
-         question, how they have answered the question, and an
-         explanation for each figure.
+   - Mid-term activity
+     - [[./task/1_POA_Urban_Accidents.Rmd][Analysis of Urban Accidents in City of Porto Alegre]]
+     - Fork the LPS repository in GitHub, push your solution there
+     - Deadline: Saturday 28/10 at 23:59
+     - Each student should provide a Rmd file with two to four plots,
+       with text describing the semantics of the data, the question,
+       how they have answered the question, and an explanation for
+       each figure, showing how that particular figure helps the
+       answering of the initial question. Send us the link for your
+       GIT repository, indicating the PATH to the Rmd file, by e-mail.
 4. Data Representation - Checklist for good graphics & the ggplot2 package
    - Data Quality
 5. Probability / Statistics - an Introduction to Statistics and Probalistic Modeling
