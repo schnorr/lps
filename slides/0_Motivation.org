@@ -32,9 +32,31 @@
 
 * A Critical Look to the News
 
-#+BEGIN_EXPORT latex
-\includegraphics[width=0.4\linewidth]{./img/Resultats1.png}\hfill\pause \includegraphics[width=0.4\linewidth]{./img/Resultats2.png}
-#+END_EXPORT
+** Left                                                               :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+
+#+BEGIN_CENTER
+Sunday 22/01/2017 night
+#+END_CENTER
+
+#+ATTR_LATEX: :width .8\linewidth
+[[./img/Resultats1.png]]
+
+#+latex: \vfill
+
+** Right                                                              :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+
+#+BEGIN_CENTER
+Monday morning
+#+END_CENTER
+
+#+ATTR_LATEX: :width .8\linewidth
+[[./img/Resultats1.png]]
 
 * Another critical look
 
@@ -46,8 +68,10 @@
 
 * Yet another critical look
 
-#+BEGIN_EXPORT latex
-\includegraphics[width=0.8\linewidth]{./img/2380774-ide-chomage-dec-2013-jpg_2048700.jpg}  \\
-Extrait du journal Le Point 2013
-#+END_EXPORT
+#+BEGIN_CENTER
+Le Point Journal, 2013
+#+END_CENTER
+
+#+ATTR_LATEX: :width \linewidth
+[[./img/2380774-ide-chomage-dec-2013-jpg_2048700.jpg]]
 
