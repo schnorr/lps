@@ -1,0 +1,162 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Data Manipulation \linebreak (CMP595 PPGC/INF/UFRGS)
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+LATEX_HEADER: \input{org-babel.tex}
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+
+\titlegraphic{
+    \includegraphics[scale=1.4]{./logo/ufrgs2.png}
+    \hspace{1cm}
+    \includegraphics[scale=1]{./logo/licia-small.png}
+    \hspace{1cm}
+    \includegraphics[scale=0.3]{./logo/uga.png}
+}
+\maketitle
+}
+#+END_EXPORT
+
+* Motivation                                                       :noexport:
+/Institut national de la statistique et des études économiques/
+- First names given to newborns along years (/par départements français/)
+- [[https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
+  - It has 3405311 rows (and one header line), 5 variables
+
+\vfill
+
+\bgroup
+\scriptsize
+#+begin_src R :results output silent :session :exports none
+library(readr);
+df <- read_tsv (file = "/tmp/dpt2015.txt",
+                locale = locale(encoding = "ISO-8859-1"));
+#+end_src
+
+#+begin_src R :results output latex :session :exports both
+library(xtable);
+df %>% sample_n(6) %>% as.data.frame() %>% xtable(.);
+#+end_src
+\egroup
+
+#+RESULTS:
+#+BEGIN_EXPORT latex
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Feb 28 09:23:07 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrlllr}
+  \hline
+ & sexe & preusuel & annais & dpt & nombre \\ 
+  \hline
+1 &   2 & MATHILDA & 2009 & 33 & 5.00 \\ 
+  2 &   2 & ROSE-MARIE & 1964 & 41 & 3.00 \\ 
+  3 &   1 & EDOUARD & 1919 & 97 & 38.00 \\ 
+  4 &   1 & DIMITRI & 1981 & 02 & 13.00 \\ 
+  5 &   2 & LINOA & 2013 & 59 & 4.00 \\ 
+  6 &   1 & SÉBASTIEN & 1953 & 97 & 16.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+#+END_EXPORT
+* Motivation \to How to handle this amount of data?
+Some questions that may arise
+1. First name frequency evolves along time?
+2. What can we say about `` /Your name here/ '' (for each state, FR)?
+3. Is there some sort of geographical correlation with the data?
+4. Which state has a larger variety of names along time?
+
+#+Latex: \vfill\pause
+
+What would be _your approach_ to tackle this?
+- Need to manipulate data in a reproducible manner
+- Leading to well elaborated plots for data interpretation
+
+* The =dplyr= R package (part of =tidyverse=)
+
+Set of functions (called *verbs*) to perform common data manipulation
+- Condition: _tidy data_ (columns are variables, rows are observations)
+- With =magrittr= (the pipe operator =%>%=), it becomes a true workflow 
+  - Pipelining data manipulation
+
+
+#+Latex: \vfill\pause
+
+These are the basic verbs
+- =select()=: select columns
+- =filter()=: filter rows
+- =arrange()=: reorder rows
+- =mutate()=: create new columns
+- =summarize()=: summarize values
+- =group_by()=: group operations using /split-apply-combine/
+_[[https://github.com/schnorr/proglit/blob/master/TD5/TD5.Rmd][Let's see them in action now]]_ \to =TD5.Rmd=
+
+# - La frequence de prénons évolue au cours du temps?
+# - Qu'est qu'on peut dire sur "Jean-Marc" au cours du temps?
+#   - Par departement? Par la FR entière?
+#   - Est-ce qu'il y a de departement qui sont different des autres?
+#   - La periode: petite, grande?
+# - Est-ce qu'il y a un aspect spatialle dans le donnée?
+#   - Avec le plan de la FR
+# - Croisement de base de données differentes pour expliquer
+#  - donnes les outils
+
+# - Dplyr motivation
+#  - filtre, agregé, faire des operations (moyenne, min, max)
+#  - traitement sur le fichier des données
+* References
+Books/articles
+- [[http://r4ds.had.co.nz/][R for Data Science, by Garrett Grolemund and Hadley Wickham]]
+  - Chapter 5 on Data transformation
+- [[http://vita.had.co.nz/papers/tidy-data.pdf][Tidy Data, by Hadley Wickham]]
+  - See Section 2, or check directly the Table 3
+- [[https://www.jstatsoft.org/article/view/v040i01/v40i01.pdf][The Split-Apply-Combine Strategy for DA, by Hadley Wickham]]
+  - See Figures 4 and 7 (note that the paper uses an old version of dplyr)
+
+#+Latex: \vfill
+
+Tutorials
+- [[https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html][Introduction to dplyr 2016-06-23]]
+
+#+Latex: \vfill
+
+Tools/packages
+- [[https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html][magrittr]]
+- [[https://github.com/hadley/dplyr][dplyr]]
+
+* Emacs Setup                                                      :noexport:
+  This document has local variables in its postembule, which should
+  allow org-mode to work seamlessly without any setup. If you're
+  uncomfortable using such variables, you can safely ignore them at
+  startup. Exporting may require that you copy them in your .emacs.
+
+# Local Variables:
+# eval:    (require 'org-install)
+# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (sh . t) (R . t) (perl . t) (ditaa . t) ))
+# eval:    (setq org-confirm-babel-evaluate nil)
+# eval:    (setq org-alphabetical-lists t)
+# eval:    (setq org-src-fontify-natively t)
+# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
+# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
+# eval:   (setq org-babel-default-header-args:R '((:session . "org-R")))
+# eval:   (setq org-export-babel-evaluate nil)
+# eval:   (setq ispell-local-dictionary "american")
+# eval:   (eval (flyspell-mode t))
+# eval:   (setq org-latex-title-command "")
+# eval:    (setq org-latex-listings 'minted)
+# eval:    (setq org-latex-minted-options '(("style" "tango") ("numbers" "none") ("numbersep" "5pt")))
+# End:
