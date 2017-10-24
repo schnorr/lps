@@ -1,7 +1,7 @@
 ---
 title: "Data Manipulation with dplyr"
 author: "Lucas Mello Schnorr, Jean-Marc Vincent"
-date: "February 28, 2017"
+date: "October, 2017"
 output: pdf_document
 ---
 
