@@ -31,7 +31,7 @@ modern data analytics tools. The course is based on Rstudio as IDE and
 using the R programming language for data analysis. Every lecture will
 be backed up with practical sessions and worked out examples.
 
-** Topics
+** Content
 
 1. General Introduction
    - [[./slides/0_Introduction.org][Course overview, goals, references]] ([[./slides/0_Introduction.pdf][PDF]])
