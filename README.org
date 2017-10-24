@@ -38,7 +38,7 @@ be backed up with practical sessions and worked out examples.
    - [[./slides/0_Motivation.org][Motivation for a Rigourous Analysis]] ([[./slides/0_Motivation.pdf][PDF]])
 2. Literate Programming - Literate Programming Motivation & RStudio Case Study
    - Reproducibility and Literate Programming ([[./slides/0_Reproducibility.pdf][PDF]])
-   - Why R? RStudio.
+   - Why R? RStudio. ([[./slides/0_WhyR.pdf][PDF]])
    - Hands-on
 3. Data Carpentry and Manipulation - Clean-up data, and using the dplyr R package
 4. Data Representation - Checklist for good graphics & the ggplot2 package
