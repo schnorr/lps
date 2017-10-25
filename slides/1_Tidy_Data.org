@@ -1,0 +1,177 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Tidy Data \linebreak (CMP595 PPGC/INF/UFRGS)
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS: author:nil date:nil title:nil
+#+LATEX_HEADER: \input{org-babel.tex}
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+
+\titlegraphic{
+    \includegraphics[scale=1.4]{./logo/ufrgs2.png}
+    \hspace{1cm}
+    \includegraphics[scale=1]{./logo/licia-small.png}
+    \hspace{1cm}
+    \includegraphics[scale=0.3]{./logo/uga.png}
+}
+\maketitle
+}
+#+END_EXPORT
+
+* What is tidy data?
+
+Data that makes data analysis easy
+- To model
+- To visualize
+- To manipulate
+
+#+Latex: \vfill
+
+The *tidying* process can be seen as a clean-up procedure.
+
+* Motivation
+
+|        | *Pregnant* | *Not pregnant* |
+|--------+----------+--------------|
+| Male   |        0 |            5 |
+| Female |        1 |            4 |
+
+#+Latex: \pause\vfill
+
+#+BEGIN_CENTER
+How many variables are in this data set?
+
+What are they?
+#+END_CENTER
+
+* Tidy data
+
+#+BEGIN_CENTER
+Each variable is a column.
+
+Each row is an observation.
+
+Each table/file is a data set.
+#+END_CENTER
+
+#+Latex: \pause
+
+| *Pregnant* | *Gender* | *Count* |
+|----------+--------+-------|
+| yes      | female |     1 |
+| yes      | male   |     0 |
+| no       | female |     4 |
+| no       | male   |     5 |
+
+* Not tidy data
+
+- Column header are values
+- Multiple variables are stored in one column
+- Variables in rows and columns
+
+#+Latex: \pause\vfill
+
+- Messy data is common
+
+* Column header are values
+
+[[http://www.pewforum.org/religious-landscape-study/income-distribution/][Income Distribution within U.S. religious groups]]
+
+by the Pew Forum on Religious and Public life 
+
+#+latex: \bgroup\scriptsize
+
+#+name: pew
+| religion                      | 	L30k | 30k-50k | 50k-100k | M100k | sample |
+|-------------------------------+--------------+---------+----------+-------+--------|
+| Buddhist                      | 	36%  |     18% |      32% |   13% |    233 |
+| Catholic                      | 	36%  |     19% |      26% |   19% |   6137 |
+| Evangelical Protestant        | 	35%  |     22% |      28% |   14% |   7462 |
+| Hindu                         | 	17%  |     13% |      34% |   36% |    172 |
+| Historically Black Protestant | 	53%  |     22% |      17% |    8% |   1704 |
+| Jehovah's Witness             | 	48%  |     25% |      22% |    4% |    208 |
+| Jewish                        | 	16%  |     15% |      24% |   44% |    708 |
+| Mainline Protestant           | 	29%  |     20% |      28% |   23% |   5208 |
+| Mormon                        | 	27%  |     20% |      33% |   20% |    594 |
+| Muslim                        | 	34%  |     17% |      29% |   20% |    205 |
+| Orthodox Christian            | 	18%  |     17% |      36% |   29% |    155 |
+| Unaffiliated                  | 	33%  |     20% |      26% |   21% |   6790 |
+
+#+latex: \egroup
+
+#+Latex: \vfill\pause
+
+#+BEGIN_CENTER
+What are the variables in this data set?
+#+END_CENTER
+
+* Tidying using gather from the tidyr package
+
+#+latex: \bgroup\scriptsize
+
+| religion               | L30k | 30k-50k | 50k-100k | M100k | sample |
+|------------------------+------+---------+----------+-------+--------|
+| Buddhist               |  36% |     18% |      32% |   13% |    233 |
+| Catholic               |  36% |     19% |      26% |   19% |   6137 |
+| Evangelical Protestant |  35% |     22% |      28% |   14% |   7462 |
+
+#+latex: \egroup
+
+#+begin_src R :results table org :session :exports both :var pew=pew :colnames yes
+library(tidyverse);
+pew <- as.data.frame(pew)
+gather(pew, key, value, -religion, -sample)
+#+end_src
+
+#+latex: \pause\vfill\bgroup\scriptsize
+
+| religion                      | sample | key  | value |
+|-------------------------------+--------+------+-------|
+| Buddhist                      |    233 | L30k |   36% |
+| Catholic                      |  6,137 | L30k |   36% |
+| Evangelical Protestant        |  7,462 | L30k |   35% |
+| Hindu                         |    172 | L30k |   17% |
+| Historically Black Protestant |  1,704 | L30k |   53% |
+| Jehovah's Witness             |    208 | L30k |   48% |
+| Jewish                        |    708 | L30k |   16% |
+| Mainline Protestant           |  5,208 | L30k |   29% |
+| Mormon                        |    594 | L30k |   27% |
+| Muslim                        |    205 | L30k |   34% |
+| Orthodox Christian            |    155 | L30k |   18% |
+| Unaffiliated                  |  6,790 | L30k |   33% |
+| ...                           |        |      |       |
+
+#+Latex: \egroup
+
+* Importing tidy data
+
+#+begin_src R :results output :session :exports both
+library(readr);
+df <- read_delim(file="name_of_the_file.csv",
+                 delim="|",
+                 col_names=FALSE);
+?read_delim
+?read_csv
+#+end_src
+
+* References
+- [[http://vita.had.co.nz/papers/tidy-data.pdf][Tidy Data, by Hadley Wickham]]
+  - See Section 2, or check directly the Table 3
+- [[https://leanpub.com/datastyle][The Elements of Data Analytic Style, by Jeff Leek]]
+  - See Section 3.4, Page 12.
+- Hadley Wickham presentation
+  http://vimeo.com/3372755
+  http://stat405.had.co.nz/lectures/18-tidy-data.pdf
