@@ -10,6 +10,7 @@
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
 #+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS: author:nil date:nil title:nil
 #+LATEX_HEADER: \input{org-babel.tex}
 
 #+BEGIN_EXPORT LaTeX  
