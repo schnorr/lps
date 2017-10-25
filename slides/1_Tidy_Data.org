@@ -118,9 +118,13 @@ by the Pew Forum on Religious and Public life
 What are the variables in this data set?
 #+END_CENTER
 
-* Tidying using gather from the tidyr package
+* Tidying data
 
-#+latex: \bgroup\scriptsize
+Using the gather package (tidyr package)
+
+#+BEGIN_EXPORT latex
+\bgroup\scriptsize
+#+END_EXPORT
 
 | religion               | L30k | 30k-50k | 50k-100k | M100k | sample |
 |------------------------+------+---------+----------+-------+--------|
