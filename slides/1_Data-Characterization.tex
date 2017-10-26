@@ -1,0 +1,271 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  This Beamer template was created by Cameron Bracken.
+%%  Anyone can freely use or modify it for any purpose
+%%  without attribution.
+%%
+%%  Last Modified: January 9, 2009
+%%
+
+%\documentclass[xcolor=x11names,compress,8pt]{beamer}
+\documentclass[xcolor=x11names,compress,8pt,
+handout
+]{beamer}
+
+%%% langue
+\usepackage[francais]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%%% mathématiques
+\usepackage{amsmath,amsfonts,amssymb,newlfont,latexsym}
+
+ \def\leq{\leqslant}
+ \def\geq{\geqslant}
+ 
+ \def\real{\mathbb{R}}
+ \def\Prob{\mathbb{P}}
+ 
+ \def\integer{\mathbb{N}}
+ \def\relative{\mathbb{Z}}
+ \def\Esp{\mathbb{E}}
+
+%%%%% hyperliens
+\usepackage{hyperref,url}
+\hypersetup{
+dvips,
+backref=true, %permet d'ajouter des liens dans...
+pagebackref=true,%...les bibliographies
+hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= blue, %couleur des hyperliens
+linkcolor= blue, %couleur des liens internes
+bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true} 
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+
+\graphicspath{{logo/}{images/}{figures/}{photos/}}
+
+\usepackage{figlatex}%
+
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+
+%\usetikzlibrary{decorations.fractals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Beamer Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+%\usefonttheme{serif}
+\usepackage{palatino}
+
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{soul}
+\sethlcolor{green}
+\definecolor{gris05}{gray}{0.95}
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+\setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4} 
+\setbeamercolor*{normal text}{fg=black,bg=white} 
+\setbeamercolor*{alerted text}{fg=IndianRed4} 
+\setbeamercolor*{example text}{fg=black} 
+\setbeamercolor*{structure}{fg=black} 
+
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+\renewcommand{\>}{\end{column}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usefonttheme{progressbar}
+\useoutertheme{progressbar}
+\useinnertheme{progressbar}
+
+
+\setbeamertemplate{itemize item}[triangle]  
+\setbeamertemplate{enumerate item}[diamond] 
+
+\setbeamertemplate{navigation symbols}{}
+
+%\beamertemplatetransparentcovereddynamic
+
+% \setbeamercovered{transparent}
+
+\title[Data Characterization] % (optional, use only with long paper titles)
+{Data Characterization}
+\subtitle{on the nature of observations}
+
+\author% (optional, use only with lots of authors)
+{		
+Lucas Mello Schnorr, Jean-Marc Vincent
+}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[LICIA] % (optional, but mostly needed)
+{%
+{\large INF/UFRGS\\
+Porto Alegre, Brazil – October 21th, 2017}
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Porto Alegre 2017] % (optional, should be abbreviation of conference name)
+{
+\includegraphics[width=2cm]{logo/ufrgs2.png}\hfill
+\includegraphics[width=2cm]{logo/licia-small.png}\hfill
+\includegraphics[width=2cm]{logo/uga.png}
+}
+
+
+
+% \AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Représentation de l'information}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[{\scshape Data Production}]{{\scshape The Problem} : The Data Set}
+
+\begin{frame}{Data Production}
+\begin{alertblock}{First question: Why  this dataset has been produced ? (purpose) }
+\begin{itemize}
+\item Who organized the study ?
+\item What was the question to be answered by the statistical analysis ?
+\item Who will be  the target of the  analysis ?
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Second question: Which approach has been used  ? (method) }
+\begin{itemize}
+\item Exhaustive collected information  
+\item Designed survey on a population  
+\item Designed Experiments
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Third question: How this dataset has been practically produced ? (observations) }
+\begin{itemize}
+\item Nature of the items in the Data set  
+\item Characterization of data  
+\item Semantic of Data
+\end{itemize}
+\end{alertblock}
+\centerline{\colorbox{yellow!85}{\textcolor{black}{\textbf{\large Take time to analyse the production process}}}}
+\end{frame}
+
+\section[{\scshape Set of Variables}]{{\scshape Set of Variables} }
+
+\begin{frame}{Analysis of  the Set of  Variables}
+\begin{alertblock}{Identification of the variables types}
+\begin{itemize}
+\item Type of the variables (numbers, identifiers, ...)
+\item Set of values taken by the variables (bounds, sets,...)
+\item Properties of the variables (positive,...)
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Identification of the variables role}
+\begin{itemize}
+\item When these variables has been collected ?
+\item Why these variables have been chosen ?
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Identification of the variables semantic}
+\begin{itemize}
+\item What is the interpretation of the variables values ? (size, weight, ...)
+\item What are the relations between variables (structure) ?
+\end{itemize}
+\end{alertblock}
+\vfill 
+
+\centerline{\colorbox{yellow!85}{\textcolor{black}{\textbf{\large Take time to build a serious metadata document}}}}
+
+\end{frame}
+\section[{\scshape Types}]{{\scshape Types of Variables} }
+\begin{frame}{Analysis of  the Type of  Variables}
+
+\begin{alertblock}{Nominal Variables : classification, membership (qualitative)}
+\begin{itemize}
+\item Values in an unstructured set
+\item Examples : color, gender, ...
+\item Methods : grouping 
+\item Operators : $=$, $\neq$
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Ordinal Variables : Comparison, Level (qualitative)}
+\begin{itemize}
+\item Values in an ordered set
+\item Examples : ranking, opinion, ...
+\item Methods :  sorting 
+\item Operators : $\leq$, $\geq$
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Quantitative Variables : Quantities}
+\begin{itemize}
+\item Real values (ratio is significant)
+\item Examples : amount, duration, cost ...
+\item Methods :  sum, difference 
+\item Operators : $+$, $-$, ($\times$, $/$ )
+\end{itemize}
+\end{alertblock}
+\vfill
+
+\centerline{\colorbox{yellow!85}{\textcolor{black}{\textbf{\large Take time to define precisely the variables properties}}}}
+\end{frame}
+
+\section[{\scshape Role of Variables}]{{\scshape Role of Variables} }
+\begin{frame}{Usage of  Variables}
+
+\begin{alertblock}{Response Variables }
+\begin{itemize}
+\item Quantity   asked by the  question 
+\item Examples : response time, iteration duration, ...
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Explanatory Variables}
+\begin{itemize}
+\item Variables that could affect the response variable
+\item Examples : size, load, ...
+\end{itemize}
+\end{alertblock}
+\pause
+\begin{alertblock}{Univariate or Multivariate}
+\begin{itemize}
+\item Univariate : one variable is involved
+\item Multivariate : several variables are involved
+\end{itemize}
+\end{alertblock}
+\vfill
+
+\centerline{\colorbox{yellow!85}{\textcolor{black}{\textbf{\large Take time to identify the response/explanatory variables }}}}
+\end{frame}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
