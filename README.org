@@ -44,7 +44,7 @@ be backed up with practical sessions and worked out examples.
      - Data set #1: ping-pong measurements
      - Data set #2: iteration duration of a geophysics application
 3. Data Carpentry and Manipulation - Clean-up data, and using the dplyr R package
-   - Introduction & Data Characterization
+   - Introduction & Data Characterization ([[./slides/1_Data-Characterization.pdf][PDF]])
    - [[./slides/1_Tidy_Data.org][Tidy Data]] ([[./slides/1_Tidy_Data.pdf][PDF]])
    - [[./slides/1_Data_Manipulation.org][Data Manipulation Workflow]] (groups, summarize) ([[./slides/1_Data_Manipulation.pdf][PDF]]) + [[./handson/1_TD.Rmd][Example]]
    - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
