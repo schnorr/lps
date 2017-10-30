@@ -53,7 +53,7 @@ be backed up with practical sessions and worked out examples.
 4. (Third Session) Data Quality, Descriptive Statistics 
    - Discussion about POA accidents
    - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
-   - Descriptive Statistics : central tendency, variability
+   - [[./slides/Data-Control/2_Data-Control.pdf][Descriptive Statistics : central tendency, variability]]
    - _Critical Analysis of a Plot_ (Homework): Choose a plot that has
      been published in the Internet, News site, anywhere. Then, in a
      Rmd file, provide a critical analysis about it. Put in your Git
