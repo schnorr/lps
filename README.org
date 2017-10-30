@@ -52,7 +52,7 @@ be backed up with practical sessions and worked out examples.
      - [[./tasks/1_POA_Urban_Accidents.Rmd][Analysis of Urban Accidents in the City of Porto Alegre]]
 4. (Third Session) Data Quality, Descriptive Statistics 
    - Discussion about POA accidents
-   - Data quality (criteria) Missing Data
+   - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
    - Descriptive Statistics : central tendency, variability
    - _Critical Analysis of a Plot_ (Homework): Choose a plot that has
      been published in the Internet, News site, anywhere. Then, in a
