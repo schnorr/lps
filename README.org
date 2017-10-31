@@ -77,7 +77,7 @@ be backed up with practical sessions and worked out examples.
 5. (Fourth Session) Data Visualization
    - Discussion about last homework (critical plot analysis)
    - Checklist for good graphics
-   - Data Viz with the ggplot2 package
+   - [[./slides/5_Data_Viz.org][Data Viz with the ggplot2 package]]
    - Probabilistic Modeling
    - Law of large numbers, Central Limit Theorem (CLT)
 6. (Fifth Session) Statistics
