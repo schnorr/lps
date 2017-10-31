@@ -50,14 +50,21 @@ be backed up with practical sessions and worked out examples.
    - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
    - Mid-term activity (Deadline: Saturday 28/10 at 23:59)
      - [[./tasks/1_POA_Urban_Accidents.Rmd][Analysis of Urban Accidents in the City of Porto Alegre]]
-       |-----------|
-       | *Solutions* |
-       |-----------|
-       |         1 |
-       |         2 |
-       |-----------|
-
-
+       |----+------------|
+       |  N | *Solutions*  |
+       |----+------------|
+       |  1 | [[https://github.com/EduardoVernier/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Eduardo]]    |
+       |  2 | [[https://github.com/mmsouza/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Matheus]]    |
+       |  3 | [[https://github.com/lizalemos/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Liza]]       |
+       |  4 | [[https://github.com/lacbeltran/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Lizeth]]     |
+       |  5 | [[https://bitbucket.org/ediazc/lps/raw/8c20392fe0c6ab14a4276259cdddd3a6e11f0960/tasks/1_POA_Urban_Accidents.Rmd][Emmanuell]]  |
+       |  6 | [[https://github.com/fabiogm/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Fábio]]      |
+       |  7 | [[https://github.com/soares-f/lps/blob/assignments/tasks/Report_year2003.Rmd][Felipe]]     |
+       |  8 | [[https://github.com/rodrimoni/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Rodrigo]]    |
+       |  9 | [[https://github.com/lbassis/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Lucas]]      |
+       | 10 | [[https://github.com/rodrigofranzoi/lps/blob/master/tasks/1_POA_Urban_Accidents.Rmd][Rodrigo F.]] |
+       | 11 | [[./tasks/solutions/Gabrielli.Rmd][Gabrielli]]  |
+       |----+------------|
 4. (Third Session) Data Quality, Descriptive Statistics 
    - Discussion about POA accidents
    - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
