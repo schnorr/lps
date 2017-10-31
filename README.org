@@ -91,10 +91,11 @@ be backed up with practical sessions and worked out examples.
 
 5. (Fourth Session) Data Visualization
    - Discussion about last homework (critical plot analysis)
-   - Checklist for good graphics
+   - [[./slides/Check-list-good-graphics-en.pdf][Checklist for good graphics]] ([[./slides/Check-list-good-graphics-tableau-en.pdf][Table]])
    - [[./slides/5_Data_Viz.org][Data Viz with the ggplot2 package]]
-   - Probabilistic Modeling
-   - Law of large numbers, Central Limit Theorem (CLT)
+   - [[./slides/3_introduction_to_statistics.pdf][Probabilistic Modeling]]
+     - Law of large numbers, Central Limit Theorem (CLT)
+   - [[./slides/lecture_data_presentation.pdf][Presentation of Scientific Results]]
 6. (Fifth Session) Statistics
    - Raw statistics and estimators
    - Decision and test
