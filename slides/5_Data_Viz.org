@@ -130,6 +130,21 @@ presidential %>%
 #+RESULTS:
 [[file:/tmp/babel-121139q8/figure12113G-k.png]]
 
+* Demonstration #3 (economics)
+
+#+begin_src R :results output graphics :file (org-babel-temp-file "figure" ".png") :exports both :width 600 :height 400 :session
+economics %>%
+    gather(variable, value, -date) %>%
+    filter(variable %in% c("pop", "unemploy")) %>%
+    ggplot(aes(x=date, y=value, color=variable)) +
+    theme_bw(base_size=22) +
+    geom_point() +
+    ylim(0,NA)
+#+end_src
+
+#+RESULTS:
+[[file:/tmp/babel-121139q8/figure12113UJy.png]]
+
 * References
 
 [[http://amzn.to/2ef1eWp][The Grammar of Graphics]] by Leland Wilkinson
