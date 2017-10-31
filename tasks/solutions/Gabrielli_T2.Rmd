@@ -1,0 +1,25 @@
+---
+  title: "Critical Analysis of a Plot"
+  author: "Gabrielli Harumi Yamashita"
+  date: "October 2017"
+  output:
+    pdf_document:
+      number_sections: yes
+    html_document: default
+  geometry: margin=1.5in, top=0.5in, bottom=0.5in
+---
+
+
+The graph used for this task was taken from the reference:
+
+SANTOS, M.K.; DANILEVICZ, A.M.F.; TUBINO, R.M.C. Environmental service providers assessment: A multi-criteria model applied to industrial waste. Journal of Cleaner Production, v.159, p. 374-387, 2017.
+
+
+![Performance of strategic ESPs by management area.](https://ars.els-cdn.com/content/image/1-s2.0-S0959652617309605-egi10M68VQ63VP_lrg.jpg)
+
+#Analysis
+
+1. The graphic is without x-axis label. Thus, it is not known the measure of this axis.
+2. The y-axis label is incomplete. So, it is not possible to know all the aspects studied only through the graph.
+3. The visualization of the different bars is good. It is possible to identify each bar even though the printout is in black and white.
+ 
