@@ -1,0 +1,144 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Data Viz with ggplot2 \linebreak (CMP595 PPGC/INF/UFRGS)
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS: author:nil date:nil title:nil
+#+LATEX_HEADER: \input{org-babel.tex}
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+
+\titlegraphic{
+    \includegraphics[scale=1.4]{./logo/ufrgs2.png}
+    \hspace{1cm}
+    \includegraphics[scale=1]{./logo/licia-small.png}
+    \hspace{1cm}
+    \includegraphics[scale=0.3]{./logo/uga.png}
+}
+\maketitle
+}
+#+END_EXPORT
+
+* Preliminaries
+
+#+Latex: \Huge
+#+BEGIN_CENTER
+Make sure your data is tidy
+#+END_CENTER
+
+* The ggplot2 package (part of tidyverse)
+
+Implements the grammar of graphics
+- Deep features behind all statistical graphics
+- Layered to enable interactive construction
+- Set of *verbs* (when combined, produce a plot)
+
+#+latex: \vfill\pause
+
+#+BEGIN_CENTER
+How it works
+
+The grammar enables a mapping
+#+END_CENTER
+
+
+** From                                                              :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:END:
+
+#+BEGIN_CENTER
+Rows (observations) \rightarrow
+
+Columns (variables) \rightarrow
+#+END_CENTER
+
+#+latex: \pause
+
+** To                                                                :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:END:
+
+#+BEGIN_CENTER
+Geometric objects (points, lines) and theirs
+
+Asthetic attributes (color, shape, size)
+#+END_CENTER
+
+* Plots
+
+- (your tidy) Data
+- Layers (each type of geometric object is a layer)
+- Scales (from the values in the data space to the aesthetic space)
+- Coord
+- Faceting
+- Theme (see Tufte)
+
+* Demonstration #1 (mpg)
+
+#+begin_src R :results output graphics :file (org-babel-temp-file "figure" ".png") :exports both :width 600 :height 200 :session
+suppressMessages(library(tidyverse));
+mpg %>%
+    ggplot(aes(x=displ, y=cty)) +
+       geom_point() +
+       theme_bw(base_size=22) +
+       xlim(0,NA) +
+       ylim(0,NA) +
+       xlab("Displacement Engine") +
+       ylab("City Miles per Galon")
+#+end_src
+
+#+RESULTS:
+[[file:/tmp/babel-121139q8/figure12113CzU.png]]
+
+* Demonstration #2 (presidential)
+
+#+begin_src R :results output graphics :file (org-babel-temp-file "figure" ".png") :exports both :width 800 :height 300 :session
+presidential %>%
+    arrange(start) %>%
+    mutate(Order = 1:nrow(.)) %>%
+    ggplot(aes(x=start, y=Order, fill=party)) +
+    geom_rect(aes(xmin=start, xmax=end, ymin=Order, ymax=Order+1)) +
+    theme_bw(base_size=22) +
+    scale_y_continuous(breaks=c(seq(1:11)+0.5), labels=(presidential %>% pull(name))) +
+    scale_fill_manual(values = c("blue", "red")) +
+    coord_cartesian(xlim=c(as.Date("1953-01-20"), as.Date("2016-01-20"))) +
+    theme (
+        plot.margin = unit(c(0,0,0,0), "cm"),
+        legend.margin = unit(.1, "line"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position = "top",
+        legend.justification = "left",
+        legend.title = element_blank()
+    )
+#+end_src
+
+#+RESULTS:
+[[file:/tmp/babel-121139q8/figure12113G-k.png]]
+
+* References
+
+[[http://amzn.to/2ef1eWp][The Grammar of Graphics]] by Leland Wilkinson
+- Long book: 20 chapters
+
+[[https://github.com/hadley/ggplot2-book][ggplot2: Elegant Graphics for Data Analysis]] by Hadley Wickham
+  #+begin_src shell :results output
+  git clone https://github.com/hadley/ggplot2-book.git
+  cd ggplot2-book
+  make clean
+  make
+  #+end_src
