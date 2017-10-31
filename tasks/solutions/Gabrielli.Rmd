@@ -1,0 +1,78 @@
+---
+  title: "Urban Accidents in the City of Porto Alegre - 2004"
+  author: "Gabrielli Harumi Yamashita"
+  date: "October 2017"
+  output:
+    pdf_document:
+      number_sections: yes
+    html_document: default
+  geometry: margin=1.5in, top=0.5in, bottom=0.5in
+---
+
+# Introduction
+
+The city of Porto Alegre provides traffic accident data occurred in the streets of the city, grouped by year. The data chosen for this work refer to the year 2004. This database is composed of 20662 observations (accidents), described by 37 variables, including the time at which each accident occurred throughout the year. This variable will be important to answer the guiding question of this work: 'What is the time of the day with most accidents?'.
+
+
+```{r}
+library(readr)
+URL <- "http://www.opendatapoa.com.br/storage/f/2013-11-06T17%3A40%3A46.014Z/acidentes-2004.csv"
+df <- read_delim(URL, delim=";")
+df
+```
+
+
+# Results
+
+Initially, to get an overview of the data, is made a graph relating the time to the sample. Thus, in the figure below, you can see that between 7am and 11:59pm there are more accidents than between 0am and 6:59 am. This can be explained by the fact that there are fewer cars on the streets at this time of day.
+
+```{r, fig.width=6, fig.height=5}
+plot(df$FX_HORA, ylab="HOUR", xlab="Sample");
+```
+
+
+The samples are then grouped by the time the accident occurred. So, it has the number of accidents that occurred in each time of day.
+
+
+```{r}
+library(dplyr);
+library(magrittr);
+```
+```{r}
+a <- df %>% group_by(FX_HORA) %>% summarize(N=n());
+a
+```
+
+
+To visualize the differences in the number of accidents per hour in 2004, a bar chart was made. It can be noticed that the harary of more accidents it is 6pm.
+
+```{r}
+b <- barplot(a$N, xlab = "HOUR");
+axis(1, at = b, labels = 0:23)
+```
+
+Another way of presenting the number of accidents per hour is through a graph of points, shown below.
+
+```{r, fig.width=5, fig.height=5}
+library(ggplot2);
+df %>%
+   group_by(FX_HORA) %>%
+   summarize(N=n()) %>%
+   ggplot(aes(x=FX_HORA, y=N)) + geom_point() + ylim(0,NA) + theme_bw();
+```
+
+To check the information provided by the charts, a summary was made of the data. It can be confirmed that the time that most accidents occur is at 6:00 pm with the maximum value of 1751.0, the hour that less accidents occurs is 2 hours with value of 221 for the year 2004. 
+
+```{r}
+summary(a$N);
+```
+
+
+
+
+
+
+
+
+
+
