@@ -1,0 +1,25 @@
+---
+title: "Critical Analysis of a Plot"
+author: "Liza Lemos"
+date: "October 2017"
+output:
+  pdf_document:
+    number_sections: yes
+  html_document: default
+geometry: margin=1.5in, top=0.5in, bottom=0.5in
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Plot
+
+The plot chosen to analyze is 'Natural Gas Production and Reserves for the Top Ten Natural Gas Producing Countries, 2014', from Transportation Energy Data Book, Edition 35, available in http://cta.ornl.gov/data/tedb35/Edition35_Full_Doc.pdf - page 58. 
+
+It's two plots, one about Natural Gas Production and one about Natura Gas Reserves. I found it easy to relate to each other because the first is ordered in ascending order and the second is in the same order as the first. Thus, we can see which country produces the most and which country has the most reserves. I found it interesting to have the numbers next to the bars, making it easier to see the difference between the bars.
+
+We have to pay attention in the x-axis scales because they are different on each plot. 
+
+In the heading, has some information that is contained in the plots on the relation of production and reserves of natural gas. The footnote contains the data source.

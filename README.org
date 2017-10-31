@@ -74,6 +74,21 @@ be backed up with practical sessions and worked out examples.
      Rmd file, provide a critical analysis about it. Put in your Git
      repository and send us the link by e-mail, OR send us the Rmd
      file directly by e-mail.
+     |----+--------------------|
+     |  N | Solutions          |
+     |----+--------------------|
+     |  1 | [[https://github.com/rodrigofranzoi/lps/blob/master/tasks/Data%20Quality/DataQuality.Rmd][Rodrigo F.]]         |
+     |  2 | [[https://github.com/lacbeltran/lps/blob/master/tasks/Lizeth_Critical_Analysis_Of_A_Plot.Rmd][Lizeth]]             |
+     |  3 | [[https://bitbucket.org/ediazc/lps/src/master/tasks/Critical_Analysis_of_a_Plot.Rmd][Emmanuell]]          |
+     |  4 | [[https://github.com/lbassis/lps/blob/master/tasks/Elections_Survey.Rmd][Lucas]]              |
+     |  5 | [[./tasks/solutions/Liza.Rmd][Liza]]               |
+     |  6 | [[./tasks/solutions/Gabrielli_T2.Rmd][Gabrielli]]          |
+     |  7 | [[https://github.com/mmsouza/lps/blob/master/tasks/News%20analysis.Rmd][Matheus]]            |
+     |  8 | [[https://github.com/soares-f/lps/blob/assignments/tasks/Comments_Plot.Rmd][Felipe]]             |
+     |  9 | [[https://github.com/rodrimoni/lps/blob/master/tasks/Critical%20Analysis%20of%20a%20Plot.Rmd][Rodrigo]]            |
+     | 10 | [[./tasks/solutions/Eduardo.png][Eduardo]] ([[https://www.reddit.com/r/dataisbeautiful/comments/74f4uu/us_mass_shootings_in_the_past_decade_oc/][Source]]) * |
+     |----+--------------------|
+
 5. (Fourth Session) Data Visualization
    - Discussion about last homework (critical plot analysis)
    - Checklist for good graphics
