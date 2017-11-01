@@ -96,6 +96,10 @@ be backed up with practical sessions and worked out examples.
    - [[./slides/3_introduction_to_statistics.pdf][Probabilistic Modeling]]
      - Law of large numbers, Central Limit Theorem (CLT)
    - [[./slides/lecture_data_presentation.pdf][Presentation of Scientific Results]]
+   - _Improve the POA Accidents Dataset plots_ (Homework): Get back to
+     the mid-term activity and improve/create your own plots using the
+     checklist for good graphics presented today.
+
 6. (Fifth Session) Statistics
    - Raw statistics and estimators
    - Decision and test
