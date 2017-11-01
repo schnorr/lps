@@ -1,0 +1,375 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  This Beamer template was created by Cameron Bracken.
+%%  Anyone can freely use or modify it for any purpose
+%%  without attribution.
+%%
+%%  Last Modified: January 9, 2009
+%%
+
+%\documentclass[xcolor=x11names,compress,8pt]{beamer}
+\documentclass[xcolor=x11names,compress,8pt,handout]{beamer}
+
+%%% langue
+%\usepackage[francais]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%%% mathématiques
+\usepackage{amsmath,amsfonts,amssymb,newlfont,latexsym,fleqn}
+
+ \def\leq{\leqslant}
+ \def\geq{\geqslant}
+ 
+ \def\real{\mathbb{R}}
+ \def\Prob{\mathbb{P}}
+ 
+ \def\integer{\mathbb{N}}
+ \def\relative{\mathbb{Z}}
+ \def\Esp{\mathbb{E}}
+  \def\Var{\mathbb{V}ar}
+
+
+%%%%% hyperliens
+\usepackage{hyperref,url}
+\hypersetup{
+dvips,
+backref=true, %permet d'ajouter des liens dans...
+pagebackref=true,%...les bibliographies
+hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= blue, %couleur des hyperliens
+linkcolor= blue, %couleur des liens internes
+bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true} 
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+
+\graphicspath{{logos/}{images/}{figures/}{photos/}}
+
+\usepackage{figlatex}%
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+%\usetikzlibrary{decorations.fractals}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Beamer Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+\usefonttheme{serif}
+\usepackage{palatino}
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+\setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4} 
+\setbeamercolor*{normal text}{fg=black,bg=white} 
+\setbeamercolor*{alerted text}{fg=red} 
+\setbeamercolor*{example text}{fg=black} 
+\setbeamercolor*{structure}{fg=black} 
+ 
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+\renewcommand{\>}{\end{column}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usefonttheme{progressbar}
+\useoutertheme{progressbar}
+\useinnertheme{progressbar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[vlined]{algorithm2e}
+\definecolor{gris05}{gray}{0.95}
+
+\SetKw{KwDownTo}{downto}
+\SetKwIF{If}{ElseIf}{Else}{if}{}{else if}{else}{endif}
+\SetKwFor{For}{for}{}{endfor}
+\SetKwFor{While}{while}{}{endw}%
+
+\SetKwInput{KwIn}{Input}%
+\SetKwInput{KwOut}{Output}%
+\SetKwInput{KwData}{Données}%
+\SetKwInput{KwResult}{Résultat}%
+
+
+\setbeamertemplate{itemize item}[triangle]  
+\setbeamertemplate{enumerate item}[diamond] 
+
+\setbeamertemplate{navigation symbols}{}
+
+%\beamertemplatetransparentcovereddynamic
+
+% \setbeamercovered{transparent}
+
+\pgfdeclareimage[height=0.5cm]{university-logo}{logos/logoUGA.jpg}
+  
+\logo{\pgfuseimage{university-logo}}
+
+\title[Estimation] % (optional, use only with long paper titles)
+{Estimation}
+\subtitle{How to get information from samples}
+
+\author% (optional, use only with lots of authors)
+{		
+\textbf{\{Arnaud.Legrand,Jean-Marc.Vincen\}t@imag.fr}
+}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Université de Grenoble-Alpes] % (optional, but mostly needed)
+{%
+{\large Université  de Grenoble-Alpes, UFR IM$^\text{2}$AG\\
+M2R-MOSIG Scientific Methodology}
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Grenoble 2016] % (optional, should be abbreviation of conference name)
+{\includegraphics[width=4cm]{logos/logoUGA.jpg}\\November 2016
+}
+
+
+
+ \AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Codes correcteurs d'erreur }
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[{\scshape The problem}]{{\scshape The problem} : Estimate a System Parameter }
+
+\begin{frame}{Protocol Validation}
+\begin{block}{Typical random access protocol to a common channel (CSMA family)}
+
+\colorbox{gris05}{
+\hspace{0.05\textwidth}\begin{minipage}[t]{0.925\textwidth}
+%\LinesNotNumbered
+\SetKwFunction{Wait}{Wait}
+\SetKwFunction{Collision}{Collision}
+\SetKwFunction{Random}{Random}
+\SetKwData{Val}{Valeur}
+
+\DontPrintSemicolon
+\BlankLine
+\hspace{-2.5ex}Protocol-Send ($M$)\;
+
+%\KwData{Configuration de jeu, c'est au joueur A de jouer }
+%\KwResult{meilleure valeur  (si B joue parfaitement)}
+
+\While{Message is not sent}{
+Send($M$)
+
+\If{\Collision}{
+W=\Random ($I_n$)\;
+
+$n=n+1$\;
+
+$I_{n+1}=g(n, I_n)$\;
+
+\Wait(W)
+}
+}
+\end{minipage}
+}
+\end{block}
+\begin{alertblock}<2->{}
+What should be the \textit{amount of time} ?
+\end{alertblock}
+\begin{block}<3->{Protocol dimensioning}
+Waiting time :
+\begin{itemize}
+\item Random
+\item Uniformly distributed on an interval $[0,I_n]$
+\item Length of the interval depends on the number of collisions
+\item Adaptive scheme $I_{n+1}= 2\times I_n$, 
+\item $I_0$ fixed, characteristic of the protocol
+\end{itemize}
+
+\end{block}
+\end{frame}
+\begin{frame}{Protocol history}
+\begin{block}{University of Hawaiì 1970  \hfill \url{http://www.hicss.hawaii.edu/}}
+
+  \centerline{\includegraphics<1->[width=0.2\textwidth]{images/Norm1.jpg}}%
+ Norman Abramson et al.
+ 
+ Use of a radio network to provide computer communications without centralization or vacations
+\end{block}
+\begin{alertblock}<2->{}
+Ancestor of CSMA/CD (ethernet), CSMA/CA (WiFi)...
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Quantitative specification validation}
+\begin{block}{Experiment}
+Propose an experiment to check the specification of the protocol
+\end{block}
+\begin{alertblock}<2->{Estimation}
+How could $I_0$ be estimated ?
+\end{alertblock}
+\begin{alertblock}<3->{Decision}
+How could you conclude on the validity of the implementation of the protocol ?
+\end{alertblock}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[{\scshape Model}]{{\scshape Modelling} : Stochastic Model }
+
+\begin{frame}
+\frametitle{Samples}
+\textbf{The observations :} a sequence of $n$ waiting times. 
+
+We suppose that the experiment  has been well driven  (no outliers, ...) and the observed values  denoted by
+\[
+\{x_1,\cdots, x_n\}.
+\]
+\textbf{The stochastic model :}
+the observations are considered to be  realizations of independent random variables with the same probability law $F$
+\[
+\{X_1,\cdots , X_n\}
+\]
+Question : \alert{What could be said on $F$ from the observations $\{x_1,\cdots, x_n\}$ ?}
+
+\begin{exampleblock}{A priori knowledge : }
+\begin{itemize}
+\item The shape of the law is known and depends on some parameter(s) unknown : \alert{\textbf{parametric estimation}}
+
+ex: $X$ follows a uniform distribution on $[0,\theta[$ with $\theta$ unknown
+\[
+F_\theta(x)=
+\begin{cases} 
+0 & x\leq 0;\\
+\frac 1 \theta x & x\in [0,\theta[;\\
+1 & \theta \leq x.
+\end{cases}
+\]
+\item The shape of the law is unknown and some parameters are under study (expectation, variance, moments,...) : \alert{\textbf{non-parametric estimation}}
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+\frametitle{Basic concepts}
+\begin{itemize}
+\item A \textbf{statistic} is a function of the observations : $t_n(x_1,\cdots, x_n)$, it usually summarize some parameter of the distribution.
+\item An \textbf{estimator} is a random variable $T_n=t(X_1, \cdots, X_n)$ (model of the statistic)
+\end{itemize}
+\begin{exampleblock}{Example}
+\[
+t(x_1,\cdots, x_n)=\max_{1\leq i \leq n}x_i \text{ is a statistic on the samples; }
+\] 
+\[\text{ and  } T_n=\max_{1\leq i \leq n}X_i \text{ the corresponding estimator.}
+\]
+
+Law of $T_n$ under the hypothesis $X_i$ uniformly distributed on $[0,\theta[$ :
+\[
+F_n^\theta(x)=\Prob(\max_{1\leq i \leq n}X_i\leq x) = \frac 1{\theta^n} x^n \text{ using independence and uniformity law of } X_i;
+\]
+and density
+\[
+f_n^\theta(x)=\frac 1{\theta^n} n x^{n-1}.
+\]
+
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+\frametitle{Bias}
+An estimator $T_n$ of some parameter $\theta$ is \textbf{unbiased} iff 
+\[
+\Esp T_n =\theta
+\]
+\begin{example}{Bias of estimator $T_n$}
+
+\[
+\Esp T_n =\int_0^\theta x f_n^\theta(x) dx=\int_0^\theta x\frac 1{\theta^n} n x^{n-1}dx=\frac 1{\theta^n} n \left[\frac {x^{n+1}}{n+1}\right]_0^\theta=\frac n {n+1}\theta \neq \theta.
+\]
+$T_n$ is a biased estimator, on average it underestimate $\theta$ on average. But, for large samples the bias decreases to $0$.
+
+\[
+\lim_{n\to +\infty}\Esp T_n = \theta \;\; T_n \text{ is \alert{aymptotically unbiased} (or consistent)}
+\]
+To compensate the bias, 
+\[
+T^\prime_n = \frac {n+1}n T_n,
+\]
+which is unbiased.
+\end{example}
+\end{frame}
+
+\begin{frame}
+\frametitle{Risk}
+The quality $T_n$ of an estimator is evaluated by the \textbf{risk} function
+\[
+R(T_n)=\Esp( T_n -\theta)^2= \Esp(T_n-\Esp T_n)^2+(\Esp T_n-\theta)^2=\Var T_n +(\Esp T_n-\theta)^2
+\]\begin{itemize}
+\item $\Var T_n$ :  the concentration of the distribution
+\item $(\Esp T_n-\theta)^2$ : impact of the bias.
+\end{itemize}
+
+For an unbiased estimator
+\[
+R(T_n)=\Var T_n
+\]
+\end{frame}
+\begin{frame}
+\begin{exampleblock}{Risk of $T^\prime_n$}
+For the example
+\begin{eqnarray*}
+\Var T_n &= &\Esp (T_n-\Esp T_n)^2 =\Esp T_n^2 -(\Esp T_n)^2 = \int_0^\theta x^2 f_n^\theta(x) dx - \left(\frac n{n+1}\theta\right)^2\\
+&=&\left(\frac n{n+2}- \frac {n^2}{(n+1)^2}\right)\theta^2
+\end{eqnarray*}
+\begin{eqnarray*}
+\Var T_n^\prime &= &\Var \frac {n+1}nT_n= \frac {(n+1)^2}{n^2}\Var T_n= \frac {(n+1)^2}{n^2}\left(\frac n{n+2}- \frac {n^2}{(n+1)^2}\right)\theta^2\\
+&=& \frac 1{n(n+2)}\theta^2
+\end{eqnarray*}
+
+\end{exampleblock}
+\end{frame}
+\begin{frame}{Another estimator}
+Consider 
+\[
+U_n = \frac 2n \sum_{i=1}^n X_i.
+\]
+\[
+\Esp U_n = \frac 2n \sum_{i=1}^n \Esp X_i= \frac 2n \sum_{i=1}^n \frac \theta 2= \theta.
+\]
+$U_n$ is an unbiased estimator of $\theta$.
+\begin{exampleblock}{Risk of $U_n$}
+For the example
+\begin{eqnarray*}
+\Var U_n &= &\Var \left(\frac 2n \sum_{i=1}^n X_i\right);\\
+&=&\left(\frac 2n\right)^2 \sum_{i=1}^n \Var X_i \text{ because of the independence of } X_i;\\
+&=& \frac 4 {n^2} n \frac {\theta^2}{12}= \frac {\theta^2}{3n}.
+\end{eqnarray*}
+The risk associated to $U_n$ is much larger than the risk of $T^\prime_n$ so we will prefer $T^\prime_n$.
+\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[{\scshape Design}]{{\scshape Design} : how to build an estimator}
+% Likelyhood
+% example exponential/Poisson/max
+\section[{\scshape Decision}]{{\scshape Decision} : testing}
+% null hypothesis
+% errors
+% confidence intervals
+
+\end{document}
