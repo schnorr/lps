@@ -103,7 +103,7 @@ be backed up with practical sessions and worked out examples.
      | N | Solutions            |
      |---+----------------------|
      | 1 | [[https://github.com/EduardoVernier/lps/blob/master/tasks/3.Rmd][Eduardo]] ([[https://github.com/EduardoVernier/lps/blob/master/tasks/3.pdf][PDF]])        |
-     | 2 | [[ https://github.com/lbassis/lps/blob/master/tasks/1_POA_Urban_Accidents%202.0.Rmd][Lucas]]                |
+     | 2 | [[https://github.com/lbassis/lps/blob/master/tasks/1_POA_Urban_Accidents%202.0.Rmd][Lucas]]                |
      | 3 | [[https://github.com/soares-f/lps/blob/assignments/tasks/GG_Plot.Rmd][Felipe]]               |
      | 4 | [[https://github.com/rodrigofranzoi/lps/blob/master/tasks/LoteriasData/LoteriasAnalysis.Rmd][Rodrigo S.]] (Loteria) |
      |---+----------------------|
