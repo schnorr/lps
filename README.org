@@ -118,7 +118,7 @@ be backed up with practical sessions and worked out examples.
      - *Method*: Estimation of P_9 and P_10, fix a level of
        confidence. Decide P_9 < P_10 if ... (under which condition?)
    - [[./handson/Duke-and-Galileo.Rmd][Analysis of the Duke of Tuscany]]
-   - [[./slides/6_Estimation/6_Estimation.pdf][Estimators - how to get information from samples]]
+   - [[./slides/6_Estimation/Estimation-intro.pdf][Estimators - how to get information from samples]]
 
 ** Schedule
 
