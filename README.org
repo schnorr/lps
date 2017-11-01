@@ -110,6 +110,12 @@ be backed up with practical sessions and worked out examples.
 
 
 6. (Fifth Session) Statistics
+   - Duc of Tuscany Problem
+     - *Model*: The sum of 3 dice is modeled by a random variable with
+       values in [3, .., 18] and probabilities P_3, ..., P_18.
+     - *Question*: Is P_9 < P_10?
+     - *Method*: Estimation of P_9 and P_10, fix a level of
+       confidence. Decide P_9 < P_10 if ... (under which condition?)
    - Raw statistics and estimators
    - Decision and test
 
