@@ -1,0 +1,162 @@
+---
+title: "How to Break a Stick ?"
+author: "Lucas Mello Schnorr, Jean-Marc Vincent"
+date: "October, 2017"
+output: pdf_document
+---
+
+
+# Break a stick in two pieces
+=============================
+
+Consider a stick, break it in two pieces. How much times the larger piece is on the smaller one ?
+
+0--------------------X----------------------1
+
+Modelling
+------------
+
+Suppose that the length of the stick is $1$, the point of break is modelled by a random variable $X$ with value in $[0,1]$. The largest piece is $\max(X,1-X)$, the smaller one $\min(X,1-X)$.
+
+The variable of interest $Z$ is defined by :
+\[
+Z=\frac {\max(X,1-X)}{\min(X,1-X)}.
+\]
+
+The aim of this activity is to study the average of $Z$ and our approach will be the simulation.
+
+*Statistical hypothesis* : $X$ is uniformly distributed on  $[0,1]$ 
+
+To ensure the reproducibility of our simulations we fix the seed of the random generator.
+## Initialization
+```{r}
+version
+set.seed(1:6)
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+
+```
+
+# Basic sample set generation
+
+```{r}
+Stick_Uniform <- function(n=10) {
+  x <- runif(n) # generates n cuts uniformly distributed on $[0,1]$
+  data.frame(n=c(1:n), X=x, Y=1-x) %>% 
+    mutate(Z=pmax(X,Y)/pmin(X,Y)) %>%
+    select(n,X,Z)
+}
+Stick_Uniform(100)
+```
+## First observations 
+----------------------------------
+Generate a sample of $n$ points break and compute the average
+
+We use a single sample Sample_Stick_Uniform (with a large size) 
+```{r}
+  Sample_Stick_Uniform <- Stick_Uniform(100000)
+```
+
+Let's try to make the computation of the average of $Z$ with a sample of size $1000$
+```{r fig.width=3, fig.height=3}
+Stick_summary <- function(df,sample_size=10) {
+  # compute the summary/boxplot of the first n rows
+    df %>% slice(1:sample_size) %>%
+    summarise(mean = mean(Z))
+}
+
+Stick_summary(Sample_Stick_Uniform,1000)
+```
+Try other valuse of the sample size
+
+Compute now the partial average depending on the size of the sample
+
+
+
+Plot the average of the value depending on the size of the sample
+
+```{r}
+Stick_Evolution <- function(df) {
+  df %>%
+    mutate(CS=cumsum(Z)) %>% 
+    mutate(AVG=CS/n) 
+}  
+
+Stick_Evolution(Sample_Stick_Uniform)  %>% 
+    ggplot(aes(x=n,y=AVG)) + geom_line() + ylim(0,200) + theme_bw()
+```
+For several simulations
+```{r}
+set.seed(43)
+Multiple_Sample_Uniform <-do.call("rbind",lapply(1:10, function(x){
+  Stick_Evolution(Stick_Uniform(n=100000)) %>%
+    mutate(Q=x)
+})) 
+Multiple_Sample_Uniform %>%
+  ggplot(aes(x=n,y=AVG,color=as.factor(Q))) + 
+    geom_line() + 
+    coord_cartesian(ylim=c(0,100)) + 
+    theme_bw()
+```
+
+As we can see on the plot, the average is not converging to a same limit, and so depends deeply on the sample size. We are in a case when the variability is too high to define an average.
+
+Moreover, we can plot an histogram 
+
+```{r}
+Sample_Stick_Uniform %>%
+    ggplot(aes(Z)) + geom_histogram(bins = 200) + xlim(0,500)
+
+```
+
+
+
+## Probabilistic Model
+
+What the theory says ?
+
+We compute the probability distribution of $Z$, that is  $\mathbb{P}(Z \leq z)$.
+
+First note that the $\min (x,1-x)$ is uniformly distributed on $[0,\frac 12]$, and $\max (x, 1-x) = 1-\min(x,1-x)$. 
+
+\[
+\mathbb{P}(Z \leq z) = \mathbb{P}\left(\frac {1-V}V \leqslant z\right) \text{ where } V\sim \mathcal{U}_{[0,\frac 12]}.
+\]
+\[
+\mathbb{P}(Z \leq z) = \mathbb{P}\left(\frac {1-V}V \leqslant z\right) = 
+\mathbb{P}\left( {1-V} \leqslant zV\right)=\mathbb{P}\left(\frac 1{1+z}\leqslant V\right) = 2 \left(\frac 12 - \frac 1{1+z}\right)= \frac {z-1}{z+1}.
+\]
+The density is obtained by derivation :
+\[
+f_Z(z) = \frac 1{(1+z)^2}
+\]
+
+And a small computation shows $\mathbb{E} Z =\int_{0}^{+\infty}z \frac 1{(1+z)^2}dz= \left[\frac 12 \log (1+z^2)\right]_0^{+\infty} = +\infty$
+
+## Other distribution of the break point ?
+
+For example with a triangular distribution on the same set with the same average $\frac 12$
+```{r}
+Stick_Triangular <- function(n=10) {
+  x <- (runif(n)+runif(n))/2  # generates n cuts distributed according the triangular distribution
+  data.frame(n=c(1:n), X=x, Y=1-x) %>% 
+    mutate(Z=pmax(X,Y)/pmin(X,Y)) %>%
+    select(n,X,Z)
+}
+
+set.seed(43)
+
+Multiple_Sample_Triangular <- do.call("rbind",lapply(1:10, function(x){
+  Stick_Evolution(Stick_Triangular(n=100000)) %>%
+    mutate(Q=x)
+})) 
+
+Multiple_Sample_Triangular %>%
+  ggplot(aes(x=n,y=AVG,color=as.factor(Q))) + 
+    geom_line() + 
+    coord_cartesian(xlim=c(0,2000),ylim=c(0,20)) + 
+    theme_bw()
+```
+
+What conclusions could be drawn on this new way of cutting ?
