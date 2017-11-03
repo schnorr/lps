@@ -120,6 +120,7 @@ be backed up with practical sessions and worked out examples.
    - [[./handson/Duke-and-Galileo.Rmd][Analysis of the Duke of Tuscany]]
    - [[./handson/Stick.Rmd][Stick Breaking Problem]]
    - [[./slides/6_Estimation/Estimation-intro.pdf][Estimators - how to get information from samples]]
+     - Handson: [[./handson/Estimation-example.Rmd][Estimation Example]]
 
 ** Schedule
 
