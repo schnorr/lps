@@ -1,0 +1,105 @@
+---
+title: "Estimator of the Max"
+author: "Lucas Mello Schnorr, Jean-Marc Vincent"
+date: "November, 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Estimation of the range of a uniform distribution
+Consider a sample of random values uniformly distributed on a interval $[0,\theta]$ where $\theta$ is an unknown parameter.
+
+The aim is to estimate the value of $\theta$.
+
+## Initialization
+```{r}
+version
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+```
+
+
+
+
+## Statistical analysis of the estimators
+
+### Build the generation function for a set of experiments
+```{r}
+library(tidyr)
+Sample_Estimators <- function(Seed = 42, theta = 2, Sample_Size = 10, Experience_Number = 20) {
+  set.seed(Seed)
+  do.call("rbind",
+    lapply(1:Experience_Number, function(x){
+      y <- runif(Sample_Size, min = 0, max = theta) 
+      # generates n values uniformly distributed on $[0,\theta]$
+      data.frame(Experience = x, 
+                 Estimator = c("Maximum", "Maximum Debiaised", "Double Average"),
+                 Observation = c(max(y),  max(y)*(1+1.0/Sample_Size), 
+                         mean(y)*2) 
+                 )
+    }
+    )
+  ) 
+}
+Sample_Estimators( Experience_Number = 10)
+```
+
+### Fix the experimental parameters for the simulation
+```{r}
+# Experimental parameters
+theta = 2 # size of 
+Sample_Size = 100
+Experience_Number = 100
+Seed = 42
+
+# plot parameters
+Order_plot =c("Maximum", "Maximum Debiaised", "Double Average")
+```
+
+### Plot a summary of the distribution of the estimators
+```{r}
+
+Title_graphic = paste("Statistics of estimators of the maximum\n",
+                      " Theta:",theta,
+                      " Sample Size per experiment : ",  Sample_Size,
+                      " Number of experiments:",Experience_Number)
+
+Sample_Estimators(Seed, theta , Sample_Size , Experience_Number ) %>% 
+  mutate(Estimator = factor(Estimator,Order_plot)) %>%
+  ggplot(aes(x = Estimator, y = Observation)) +
+  geom_boxplot(width = 0.3, color = "darkred") +
+  stat_summary(fun.y=mean, colour="black", geom="point", 
+               shape=4, size=5, show.legend = FALSE) + 
+  geom_hline(yintercept=2, color="blue") +
+  xlab("") +
+  ylab("Statistics of the estimator") +
+  theme_bw(base_size=12) +
+  ggtitle(Title_graphic) +
+  coord_cartesian(ylim=c(1.6,2.3))
+```
+
+### Analysis  of the plot
+
+In the figure we have an idea about the differences between the estimators. The mean of the estimators, $\times$ points, show the biais of the _Maximum_ estimator, the height of the boxplot illustrates the risk associated with each estimator. Even if the first estimator is unbiaised the associated risk seems smaller than the _Double Average_ estimator. This should be confirmed by some tests. 
+
+### To go further 
+We can plot the histograms of the distributions of the estimators
+
+```{r}
+Sample_Estimators(Seed, theta, Sample_Size=1000, Experience_Number) %>% 
+  mutate(Estimator = factor(Estimator,Order_plot)) %>%
+  ggplot(aes(x=Observation, y=..density..)) +
+  geom_vline(xintercept=2, color="blue") +
+  geom_histogram(binwidth = 0.005) + 
+  coord_cartesian(xlim=c(1.5,2.5)) + 
+  theme_bw() +
+  facet_wrap(~Estimator, ncol=1)
+  # ggsave(filename = "hist.png")
+```
+Exercise : why these representations are misleading ? Explain how you can avoid this misleading.
+
