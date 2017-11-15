@@ -133,6 +133,22 @@ be backed up with practical sessions and worked out examples.
 |   4 | 01/11 (Wednesday) | 8:30 -- 12:30 (4h) | Lab 67-103 / AUD-1 |
 |-----+-------------------+--------------------+--------------------|
 
+** Final project
+
+The deadline for the final project is the 15th of December, 2017.
+
+|------------+-------------------------------+----|
+| Student    | Dataset                       |    |
+|------------+-------------------------------+----|
+| Eduardo    | [[https://www.kaggle.com/rojour/boston-results][Boston Marathon 2017]]          | ok |
+| Liza       | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                  | ok |
+| Fábio      | [[http://www.datapoa.com.br/dataset/acidentes-de-transito][Porto Alegre accidents]]        | ok |
+| Gabrielli  | [[https://www.kaggle.com/nasirmeh/prediction-of-rainfall/][Rainfall in India]]             | ok |
+| Felipe     | [[http://archive.ics.uci.edu/ml/datasets/online+retail][Online Retail Sales in Europe]] | ok |
+| Rodrigo F. | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                  | ok |
+| Lucas      | [[https://www.kaggle.com/open-source-sports/professional-hockey-database/data][Professional Hockey]]           | ok |
+|------------+-------------------------------+----|
+
 ** References
 
 - Literate Programming. Donald E. Knuth (Stanford, California)
