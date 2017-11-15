@@ -109,7 +109,6 @@ be backed up with practical sessions and worked out examples.
      | 5 | [[https://bitbucket.org/ediazc/lps/src/master/tasks/Critical_Analysis_of_Accidents_Plot.Rmd][Emmanuell]] ([[https://bitbucket.org/ediazc/lps/src/master/tasks/Critical_Analysis_of_Accidents_Plot.pdf][PDF]])      |
      |---+----------------------|
 
-
 6. (Fifth Session) Statistics
    - Duke of Tuscany Problem
      - *Model*: The sum of 3 dice is modeled by a random variable with
