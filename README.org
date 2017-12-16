@@ -137,21 +137,29 @@ be backed up with practical sessions and worked out examples.
 
 The deadline for the final project is the 15th of December, 2017.
 
-|------------+---------------------------------------------+----+----------|
-| Student    | Dataset                                     |    | Delivery |
-|------------+---------------------------------------------+----+----------|
-| Eduardo    | [[https://www.kaggle.com/rojour/boston-results][Boston Marathon 2017]]                        | ok |          |
-| Liza       | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |          |
-| Fábio      | [[http://www.datapoa.com.br/dataset/acidentes-de-transito][Porto Alegre accidents]]                      | ok |          |
-| Gabrielli  | [[https://www.kaggle.com/nasirmeh/prediction-of-rainfall/][Rainfall in India]]                           | ok |          |
-| Felipe     | [[http://archive.ics.uci.edu/ml/datasets/online+retail][Online Retail Sales in Europe]]               | ok |          |
-| Rodrigo F. | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |          |
-| Lucas      | [[https://www.kaggle.com/open-source-sports/professional-hockey-database/data][Professional Hockey]]                         | ok |          |
-| Matheus    | [[http://dados.rs.gov.br/dataset/fee-indicadores-criminais-homicidio-doloso-103597][RS Homicide]]                                 | ok |          |
-| Rodrigo N. | [[https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings][Video Game Sales]]                            | ok |          |
-| Lizeth     | [[https://www.kaggle.com/unsdsn/world-happiness/data][World Happiness]]                             | ok |          |
-| Emmanuell  | [[https://www.kaggle.com/worldbank/world-development-indicators][Land usage and Agriculture]] & [[https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data][Climate change]] | ok |          |
-|------------+---------------------------------------------+----+----------|
+|------------+---------------------------------------------+----+----------------|
+| Student    | Dataset                                     |    | Delivery       |
+|------------+---------------------------------------------+----+----------------|
+| Eduardo    | [[https://www.kaggle.com/rojour/boston-results][Boston Marathon 2017]]                        | ok | [[https://github.com/EduardoVernier/lps/blob/master/marathon/analysis.md][BostonMarathon]] |
+| Liza       | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok | [[https://github.com/lizalemos/lps/blob/master/tasks/us_homicedes.Rmd][USHomicides]]    |
+| Fábio      | [[http://www.datapoa.com.br/dataset/acidentes-de-transito][Porto Alegre accidents]]                      | ok | [[https://github.com/fabiogm/lps/tree/master/tasks/final-project][POAccidents]]    |
+| Gabrielli  | [[https://www.kaggle.com/nasirmeh/prediction-of-rainfall/][Rainfall in India]]                           | ok | [[./data/ac/71881e-a3f4-400b-88b0-241c637517b7/Gabrielli_final.zip][Rainfall]]       |
+| Felipe     | [[http://archive.ics.uci.edu/ml/datasets/online+retail][Online Retail Sales in Europe]]               | ok | [[https://github.com/soares-f/lps/tree/assignments/tasks/final][OnlineSales]]    |
+| Rodrigo F. | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok | [[https://github.com/rodrigofranzoi/US-Homicides][USHomicides]]    |
+| Lucas      | [[https://www.kaggle.com/open-source-sports/professional-hockey-database/data][Professional Hockey]]                         | ok | [[https://github.com/lbassis/hockey_analysis][Hockey]]         |
+| Matheus    | [[http://dados.rs.gov.br/dataset/fee-indicadores-criminais-homicidio-doloso-103597][RS Homicide]]                                 | ok | [[https://github.com/mmsouza/lps/tree/master/Final%20Task][RSHomicide]]     |
+| Rodrigo N. | [[https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings][Video Game Sales]]                            | ok | [[https://github.com/rodrimoni/lps/tree/master/FinalProject][GameSales]]      |
+| Lizeth     | [[https://www.kaggle.com/unsdsn/world-happiness/data][World Happiness]]                             | ok | [[https://github.com/lacbeltran/lps/blob/master/tasks/Final_Project_Lizeth.Rmd][WorldHappy]]     |
+| Emmanuell  | [[https://www.kaggle.com/worldbank/world-development-indicators][Land usage and Agriculture]] & [[https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data][Climate change]] | ok |                |
+|------------+---------------------------------------------+----+----------------|
+
+*** Entregas locais                                       :ATTACH:noexport:
+:PROPERTIES:
+:Attachments: Gabrielli_final.zip
+:ID:       ac71881e-a3f4-400b-88b0-241c637517b7
+:END:
+
+
 
 ** References
 
