@@ -137,21 +137,21 @@ be backed up with practical sessions and worked out examples.
 
 The deadline for the final project is the 15th of December, 2017.
 
-|------------+---------------------------------------------+----|
-| Student    | Dataset                                     |    |
-|------------+---------------------------------------------+----|
-| Eduardo    | [[https://www.kaggle.com/rojour/boston-results][Boston Marathon 2017]]                        | ok |
-| Liza       | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |
-| Fábio      | [[http://www.datapoa.com.br/dataset/acidentes-de-transito][Porto Alegre accidents]]                      | ok |
-| Gabrielli  | [[https://www.kaggle.com/nasirmeh/prediction-of-rainfall/][Rainfall in India]]                           | ok |
-| Felipe     | [[http://archive.ics.uci.edu/ml/datasets/online+retail][Online Retail Sales in Europe]]               | ok |
-| Rodrigo F. | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |
-| Lucas      | [[https://www.kaggle.com/open-source-sports/professional-hockey-database/data][Professional Hockey]]                         | ok |
-| Matheus    | [[http://dados.rs.gov.br/dataset/fee-indicadores-criminais-homicidio-doloso-103597][RS Homicide]]                                 | ok |
-| Rodrigo N. | [[https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings][Video Game Sales]]                            | ok |
-| Lizeth     | [[https://www.kaggle.com/unsdsn/world-happiness/data][World Happiness]]                             | ok |
-| Emmanuell  | [[https://www.kaggle.com/worldbank/world-development-indicators][Land usage and Agriculture]] & [[https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data][Climate change]] | ok |
-|------------+---------------------------------------------+----|
+|------------+---------------------------------------------+----+----------|
+| Student    | Dataset                                     |    | Delivery |
+|------------+---------------------------------------------+----+----------|
+| Eduardo    | [[https://www.kaggle.com/rojour/boston-results][Boston Marathon 2017]]                        | ok |          |
+| Liza       | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |          |
+| Fábio      | [[http://www.datapoa.com.br/dataset/acidentes-de-transito][Porto Alegre accidents]]                      | ok |          |
+| Gabrielli  | [[https://www.kaggle.com/nasirmeh/prediction-of-rainfall/][Rainfall in India]]                           | ok |          |
+| Felipe     | [[http://archive.ics.uci.edu/ml/datasets/online+retail][Online Retail Sales in Europe]]               | ok |          |
+| Rodrigo F. | [[https://www.kaggle.com/jyzaguirre/us-homicide-reports/data][US Homicides]]                                | ok |          |
+| Lucas      | [[https://www.kaggle.com/open-source-sports/professional-hockey-database/data][Professional Hockey]]                         | ok |          |
+| Matheus    | [[http://dados.rs.gov.br/dataset/fee-indicadores-criminais-homicidio-doloso-103597][RS Homicide]]                                 | ok |          |
+| Rodrigo N. | [[https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings][Video Game Sales]]                            | ok |          |
+| Lizeth     | [[https://www.kaggle.com/unsdsn/world-happiness/data][World Happiness]]                             | ok |          |
+| Emmanuell  | [[https://www.kaggle.com/worldbank/world-development-indicators][Land usage and Agriculture]] & [[https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data][Climate change]] | ok |          |
+|------------+---------------------------------------------+----+----------|
 
 ** References
 
