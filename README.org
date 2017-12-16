@@ -14,6 +14,7 @@
 #+SUBTITLE:
 #+INFOJS_OPT:
 #+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="http://orgmode.org">Org</a> mode 9.0.1)
+#+EXPORT_EXCLUDE_TAGS: noexport
 #+LATEX_HEADER:
 
 * Literate Programming and Statistics (CMP595)
