@@ -160,7 +160,128 @@ The deadline for the final project is the 15th of December, 2017.
 :ID:       ac71881e-a3f4-400b-88b0-241c637517b7
 :END:
 
+*** Rmd                                                          :noexport:
 
+#+name: DELIVSVN
+|-----------+------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------|
+| Nome      | SVN                                                                          | Rmd                                                                                                                        |
+|-----------+------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------|
+| Eduardo   | https://github.com/EduardoVernier/lps/trunk/marathon                         | https://raw.githubusercontent.com/EduardoVernier/lps/master/marathon/analysis.md                                           |
+| Liza      | https://github.com/lizalemos/lps/trunk/tasks                                 | https://raw.githubusercontent.com/lizalemos/lps/master/tasks/us_homicedes.Rmd                                              |
+| Fabio     | https://github.com/fabiogm/lps/trunk/tasks/final-project                     | https://raw.githubusercontent.com/fabiogm/lps/master/tasks/final-project/POA_Urban_Accidents_report.Rmd                    |
+| Gabrielli |                                                                              |                                                                                                                            |
+| Felipe    | https://github.com/soares-f/lps/branches/assignments/tasks/final             | https://raw.githubusercontent.com/soares-f/lps/assignments/tasks/final/Report_Felipe_Soares.Rmd                            |
+| RodrigoF  | https://github.com/rodrigofranzoi/US-Homicides/trunk/US-Homicides%20Analysis | https://raw.githubusercontent.com/rodrigofranzoi/US-Homicides/master/US-Homicides%20Analysis/US%20Homicides%20Analysis.Rmd |
+| Lucas     | https://github.com/lbassis/hockey_analysis/trunk/                            | https://raw.githubusercontent.com/lbassis/hockey_analysis/master/analysis.Rmd                                              |
+| Matheus   | https://github.com/mmsouza/lps/trunk/Final%20Task                            | https://raw.githubusercontent.com/mmsouza/lps/master/Final%20Task/Average_Murder_indicator.Rmd                             |
+| RodrigoN  | https://github.com/rodrimoni/lps/trunk/FinalProject                          | https://raw.githubusercontent.com/rodrimoni/lps/master/FinalProject/FinalProject-GamesSales.Rmd                            |
+| Lizeth    | https://github.com/lacbeltran/lps/trunk/tasks                                | https://raw.githubusercontent.com/lbassis/hockey_analysis/master/analysis.Rmd                                              |
+| Emmanuell |                                                                              |                                                                                                                            |
+|-----------+------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------|
+
+#+header: :var DELIVSVN=DELIVSVN
+#+begin_src R :results output :session :exports both
+checkout <- function(Nome, SVN)
+{
+    if (SVN == ""){
+        return(FALSE);
+    }
+    mainDir = ".";
+    subDir = "final/";
+    dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
+    command = paste("svn checkout", SVN, paste0("final/", Nome));
+    x <- system(command, ignore.stdout=FALSE, ignore.stderr=FALSE);
+    return(TRUE);
+}
+
+suppressMessages(library(tidyverse));
+DELIVSVN %>%
+    slice(-1) %>%
+    rename(Nome = V1,
+           RMD = V3,
+           SVN = V2) %>%
+    select(Nome, SVN) %>%
+    rowwise() %>%
+    mutate(Checkout = checkout(Nome, SVN)) %>%
+    select(Checkout)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Checked out revision 83.
+Checked out revision 61.
+A    final/Fabio/POA_Urban_Accidents_report.Rmd
+A    final/Fabio/POA_Urban_Accidents_report.pdf
+A    final/Fabio/data
+A    final/Fabio/data/acidentes-2012.csv
+A    final/Fabio/data/acidentes-2013.csv
+A    final/Fabio/data/acidentes-2014.csv
+A    final/Fabio/data/acidentes-2015.csv
+A    final/Fabio/data/acidentes-2016.csv
+Checked out revision 103.
+Checked out revision 74.
+Checked out revision 3.
+A    final/Lucas/analysis.Rmd
+A    final/Lucas/analysis.pdf
+A    final/Lucas/analysis_files
+A    final/Lucas/analysis_files/figure-latex
+A    final/Lucas/analysis_files/figure-latex/unnamed-chunk-3-1.pdf
+A    final/Lucas/lps.Rproj
+A    final/Lucas/professional-hockey-database
+A    final/Lucas/professional-hockey-database/AwardsCoaches.csv
+A    final/Lucas/professional-hockey-database/AwardsPlayers.csv
+A    final/Lucas/professional-hockey-database/Coaches.csv
+A    final/Lucas/professional-hockey-database/CombinedShutouts.csv
+A    final/Lucas/professional-hockey-database/Goalies.csv
+A    final/Lucas/professional-hockey-database/GoaliesSC.csv
+A    final/Lucas/professional-hockey-database/GoaliesShootout.csv
+A    final/Lucas/professional-hockey-database/HOF.csv
+A    final/Lucas/professional-hockey-database/Master.csv
+A    final/Lucas/professional-hockey-database/Scoring.csv
+A    final/Lucas/professional-hockey-database/ScoringSC.csv
+A    final/Lucas/professional-hockey-database/ScoringShootout.csv
+A    final/Lucas/professional-hockey-database/SeriesPost.csv
+A    final/Lucas/professional-hockey-database/TeamSplits.csv
+A    final/Lucas/professional-hockey-database/TeamVsTeam.csv
+A    final/Lucas/professional-hockey-database/Teams.csv
+A    final/Lucas/professional-hockey-database/TeamsHalf.csv
+A    final/Lucas/professional-hockey-database/TeamsPost.csv
+A    final/Lucas/professional-hockey-database/TeamsSC.csv
+A    final/Lucas/professional-hockey-database/abbrev.csv
+Checked out revision 9.
+Checked out revision 80.
+Checked out revision 76.
+Checked out revision 70.
+Source: local data frame [11 x 1]
+Groups: <by row>
+
+# A tibble: 11 x 1
+   Checkout
+      <lgl>
+ 1     TRUE
+ 2     TRUE
+ 3     TRUE
+ 4    FALSE
+ 5     TRUE
+ 6     TRUE
+ 7     TRUE
+ 8     TRUE
+ 9     TRUE
+10     TRUE
+11    FALSE
+#+end_example
+
+Deal with Gabrielli case
+
+#+begin_src shell :results output
+cd final
+unzip -j -d "Gabrielli" ../data/ac/71881e-a3f4-400b-88b0-241c637517b7/Gabrielli_final.zip 
+#+end_src
+
+#+RESULTS:
+: Archive:  ../data/ac/71881e-a3f4-400b-88b0-241c637517b7/Gabrielli_final.zip
+:   inflating: Gabrielli/lps_final_task.rmd  
+:   inflating: Gabrielli/rainfall_in_india_1901_2015.csv  
 
 ** References
 
