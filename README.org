@@ -124,6 +124,8 @@ be backed up with practical sessions and worked out examples.
 
 ** Schedule
 
+This is the scheduler for the 2018/2 edition.
+
 |-----+-------------------+--------------------+---------------|
 | Day | Date              | Hour               | Room          |
 |-----+-------------------+--------------------+---------------|
