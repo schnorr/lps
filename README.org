@@ -49,6 +49,54 @@ be backed up with practical sessions and worked out examples.
    - [[./slides/1_Tidy_Data.org][Tidy Data]] ([[./slides/1_Tidy_Data.pdf][PDF]])
    - [[./slides/1_Data_Manipulation.org][Data Manipulation Workflow]] (groups, summarize) ([[./slides/1_Data_Manipulation.pdf][PDF]]) + [[./handson/1_TD.Rmd][Example]]
    - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
+4. (Third Session) Data Quality, Descriptive Statistics 
+   - Discussion about POA accidents
+   - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
+   - [[./slides/Data-Control/2_Data-Control.pdf][Descriptive Statistics : central tendency, variability]]
+   - _Critical Analysis of a Plot_ (Homework): Choose a plot that has
+     been published in the Internet, News site, anywhere. Then, in a
+     Rmd file, provide a critical analysis about it. Put in your Git
+     repository and send us the link by e-mail, OR send us the Rmd
+     file directly by e-mail.
+5. (Fourth Session) Data Visualization
+   - Discussion about last homework (critical plot analysis)
+   - [[./slides/Check-list-good-graphics-en.pdf][Checklist for good graphics]] ([[./slides/Check-list-good-graphics-tableau-en.pdf][Table]])
+   - [[./slides/5_Data_Viz.org][Data Viz with the ggplot2 package]]
+   - [[./slides/3_introduction_to_statistics.pdf][Probabilistic Modeling]]
+     - Law of large numbers, Central Limit Theorem (CLT)
+   - [[./slides/lecture_data_presentation.pdf][Presentation of Scientific Results]]
+   - _Improve the POA Accidents Dataset plots_ (Homework): Get back to
+     the mid-term activity and improve/create your own plots using the
+     checklist for good graphics presented today.
+6. (Fifth Session) Statistics
+   - Duke of Tuscany Problem
+     - *Model*: The sum of 3 dice is modeled by a random variable with
+       values in [3, .., 18] and probabilities P_3, ..., P_18.
+     - *Question*: Is P_9 < P_10?
+     - *Method*: Estimation of P_9 and P_10, fix a level of
+       confidence. Decide P_9 < P_10 if ... (under which condition?)
+   - [[./handson/Duke-and-Galileo.Rmd][Analysis of the Duke of Tuscany]]
+   - [[./handson/Stick.Rmd][Stick Breaking Problem]]
+   - [[./slides/6_Estimation/Estimation-intro.pdf][Estimators - how to get information from samples]]
+     - Handson: [[./handson/Estimation-example.Rmd][Estimation Example]]
+
+** Content 2017/2                                                 :noexport:
+
+1. (First Session) General Introduction
+   - [[./slides/0_Introduction.org][Course overview, goals, references]] ([[./slides/0_Introduction.pdf][PDF]])
+   - [[./slides/0_Motivation.org][Motivation for a Rigourous Analysis]] ([[./slides/0_Motivation.pdf][PDF]])
+2. (First Session) Literate Programming - Literate Programming Motivation & RStudio Case Study 
+   - Reproducibility and Literate Programming ([[./slides/0_Reproducibility.pdf][PDF]])
+   - Why R? RStudio. ([[./slides/0_WhyR.pdf][PDF]])
+   - Hands-on: Using RStudio for running a Statistical Analysis
+     - [[./handson/0_TD.Rmd][Given Example Analysis]]
+     - Data set #1: ping-pong measurements
+     - Data set #2: iteration duration of a geophysics application
+3. (Second Session) Data Carpentry and Manipulation - Clean-up data, and using the dplyr R package 
+   - Introduction & Data Characterization ([[./slides/1_Data-Characterization.pdf][PDF]])
+   - [[./slides/1_Tidy_Data.org][Tidy Data]] ([[./slides/1_Tidy_Data.pdf][PDF]])
+   - [[./slides/1_Data_Manipulation.org][Data Manipulation Workflow]] (groups, summarize) ([[./slides/1_Data_Manipulation.pdf][PDF]]) + [[./handson/1_TD.Rmd][Example]]
+   - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
    - Mid-term activity (Deadline: Saturday 28/10 at 23:59)
      - [[./tasks/1_POA_Urban_Accidents.Rmd][Analysis of Urban Accidents in the City of Porto Alegre]]
        |----+------------|
