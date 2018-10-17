@@ -136,7 +136,7 @@ This is the scheduler for the 2018/2 edition.
 |   4 | 08/11 (Thursday)  | 9:00 -- 12:00 (4h) | Lab 43413-101 |
 |-----+-------------------+--------------------+---------------|
 
-** Final project                                                         :n:
+** Final project                                                  :noexport:
 
 The deadline for the final project is the 15th of December, 2017.
 
