@@ -74,7 +74,7 @@ Design of Controlled Experiments
 In case you need to contact us, write an e-mail with the subject
 
 #+BEGIN_EXAMPLE
-Subject: [LPS 2017] ...
+Subject: [LPS 2018] ...
 #+END_EXAMPLE
 
 #+latex: \pause\vfill
