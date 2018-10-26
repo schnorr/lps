@@ -9,7 +9,7 @@
 
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
-#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   H:1 num:t title:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+LATEX_HEADER: \input{org-babel.tex}
 
 #+BEGIN_EXPORT LaTeX  
@@ -17,7 +17,7 @@
 
 \author{Lucas Mello Schnorr, Jean-Marc Vincent}
 
-\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 20th, 2017}
+\date{INF/UFRGS \newline Porto Alegre, Brazil -- October 29th, 2017}
 
 \titlegraphic{
     \includegraphics[scale=1.4]{./logo/ufrgs2.png}
@@ -137,14 +137,17 @@ Tools
 - Analysis, manipulation, visualization (Rstudio, dplyr, tidyr, ggplot2)
 - Report (R markdown within Rstudio)
 * Lecture Organization
+This is the scheduler for the 2018/2 edition.
 
-| *Day* | *Date*              | *Hour*               | *Room*       |
-|-----+-------------------+--------------------+------------|
-|   1 | 24/10 (Tuesday)   | 8:30 -- 10:30 (2h) | Lab 67-104 |
-|   2 | 25/10 (Wednesday) | 8:30 -- 10:30 (2h) | AUD-1      |
-|   3 | 30/10 (Monday)    | 8:30 -- 10:30 (2h) | AUD-1      |
-|   4 | 31/10 (Tuesday)   | 8:30 -- 12:30 (4h) | Lab 67-103 |
-|   5 | 01/11 (Wednesday) | 8:30 -- 12:30 (4h) | AUD-1      |
+|-----+-------------------+----------------------+---------------|
+| Day | Date              | Hour                 | Room          |
+|-----+-------------------+----------------------+---------------|
+|   0 | 29/10 (Monday)    | 9:00 -- 12:00 (3h)   | Lab 43413-102 |
+|   1 | 30/10 (Tuesday)   | 9:00 -- 10:15 (1h15) | Lab 43413-102 |
+|   2 | 31/10 (Wednesday) | 9:00 -- 12:00 (3h)   | Lab 43413-101 |
+|   3 | 01/11 (Thursday)  | 9:00 -- 12:00 (3h)   | Lab 43413-101 |
+|   4 | 08/11 (Thursday)  | 9:00 -- 12:00 (4h)   | Lab 43413-101 |
+|-----+-------------------+----------------------+---------------|
 
 Day 1 (today)
 - General introduction and literate programming
