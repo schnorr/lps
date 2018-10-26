@@ -145,16 +145,17 @@ Type 'q()' to quit R.
 \end{frame}
 
 \begin{frame}[fragile,label=sec-4-1-5]{Install a few cool packages}
- R has it's own package management mechanism so just run R and type the
+ R has its own package management mechanism so just run R and type the
 following commands:
 \begin{itemize}
-\item \texttt{ddply}, \texttt{reshape} and \texttt{ggplot2} by Hadley Wickham (\url{http://had.co.nz/})
+\item Metapackage \texttt{tidyverse} by H. Wickham (\url{http://had.co.nz/})
+  \begin{itemize}
+  \item Which includes many packages \texttt{dplyr}, \texttt{tidyr},
+    \texttt{ggplot2}, \texttt{tibble}, \texttt{readr},
+    \texttt{purrr}, \texttt{stringr}, and \texttt{forcats}
+  \end{itemize}
 \begin{verbatim}
-install.packages("plyr")    
-  # or better: install.packages("dplyr")
-install.packages("reshape") 
-  # or better; install.packages("tidyr")
-install.packages("ggplot2")
+install.packages("tidyverse")
 \end{verbatim}
 \item \texttt{knitR} by (Yihui Xie) \url{http://yihui.name/knitr/}
 \begin{verbatim}
