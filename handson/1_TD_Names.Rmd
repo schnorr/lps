@@ -10,26 +10,34 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Using the [given names data
-set of INSEE](https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip), answer some of the following questions:
+set of INSEE](https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2017_txt.zip), answer some of the following questions:
 
 - First name frequency evolves along time?
-- What can we say about ``Your name here'' (for each state, all the country)?
+- What can we say about ``the french version of your name here'' (for each state, all the country)?
 - Is there some sort of geographical correlation with the data?
 - Which state has a larger variety of names along time?
 - _your own question_ (be creative)
 
-You need to use the _dplyr_ and _magrittr_ for this analysis. Unzip the file _dpt2015_txt.zip_ (to get the **dpt2015.txt**). Read in R with this code. Note that you might need to install the `readr` package with the appropriate command.
+You need to use the _dplyr_ and _magrittr_ for this analysis. Read in R with this code. Note that you might need to install the `readr` package with the appropriate command.
 
-```{bash}
-rm -f dpt2015*.zip
-wget -qc https://www.inf.ufrgs.br/~schnorr/tmp/dpt2015_txt.zip
-unzip -o dpt2015_txt.zip
-ls -lh dpt2015*
+```{r}
+file = "dpt2017_txt.zip"
+if(!file.exists(file)){
+  download.file("https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2017_txt.zip",
+	destfile=file)
+}
+unzip(file)
 ```
 
 ```{r}
 library(readr);
-df <- read_tsv("dpt2015.txt", locale = locale(encoding = "ISO-8859-1"));
+df <- read_tsv("dpt2017.txt", locale = locale(encoding = "ISO-8859-1"), col_types=cols(
+  sexe = col_integer(),
+  preusuel = col_character(),
+  annais = col_character(),
+  dpt = col_character(),
+  nombre = col_integer()
+));
 df;
 ```
 
