@@ -49,7 +49,7 @@ be backed up with practical sessions and worked out examples.
    - [[./slides/1_Tidy_Data.org][Tidy Data]] ([[./slides/1_Tidy_Data.pdf][PDF]])
    - [[./slides/1_Data_Manipulation.org][Data Manipulation Workflow]] (groups, summarize) ([[./slides/1_Data_Manipulation.pdf][PDF]]) + [[./handson/1_TD.Rmd][Example]]
    - Hands-on: What do you think about these   [[./handson/1_Experiences][experimental results]]
-   - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2016 Edition]]
+   - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2017 Edition]]
 4. (Third Session) Data Quality, Descriptive Statistics 
    - Discussion about POA accidents
    - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
