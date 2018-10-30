@@ -13,7 +13,7 @@ Using the [given names data
 set of INSEE](https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2017_txt.zip), answer some of the following questions:
 
 - First name frequency evolves along time?
-- What can we say about ``the french version of your name here'' (for each state, all the country)?
+- What can we say about "the french version of your name here" (for each state, all the country)?
 - Is there some sort of geographical correlation with the data?
 - Which state has a larger variety of names along time?
 - _your own question_ (be creative)
