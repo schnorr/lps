@@ -51,7 +51,8 @@ be backed up with practical sessions and worked out examples.
    - Hands-on: What do you think about these   [[./handson/1_Experiences][experimental results]]
    - Hands-on: [[./handson/1_TD_Names.Rmd][Given names in France - 2017 Edition]]
 4. (Third Session) Data Quality, Descriptive Statistics 
-   - Discussion about POA accidents
+   - Discussion about results of given names in France
+   - [[http://datapoa.com.br/dataset/acidentes-de-transito][Handson about POA accidents]] (2000 -- 2016)
    - [[./slides/Data-Quality/2_Data-Quality.pdf][Data quality (criteria) Missing Data]]
    - [[./slides/Data-Control/2_Data-Control.pdf][Descriptive Statistics : central tendency, variability]]
    - _Critical Analysis of a Plot_ (Homework): Choose a plot that has
