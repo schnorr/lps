@@ -195,7 +195,28 @@ This is the scheduler for the 2018/2 edition.
 |   4 | 09/11 (Friday)    | 9:00 -- 12:00 (4h)   | Lab 43413-101 |
 |-----+-------------------+----------------------+---------------|
 
-** Final project                                                  :noexport:
+** Final project
+
+The goal of the final project is to let students employ the concepts
+and techniques overviewed during the course to answer some specific
+questions about a selected dataset. We expect each student to provide
+us a *project proposal* with (a) the name of the dataset (and a quick
+description about its semantics) and (b) a couple of questions to be
+answered.  Once the student get his/her proposal approved by both
+professors, he/she will need to provide us a laboratory notebook (the
+iceberg) and a short report (the tip of the iceberg) about the
+findings. Both documents should be made available in a public =GIT=
+repository and can be written in any literate programming environment,
+such as R Markdown (Rstudio), Jupyter, and Org-Mode. Both documents
+should be fully reproducible with the corresponding tools (i.e., the
+knitr of R); datasets might be placed in the same repository where the
+documents are located.
+
+The deadlines:
+- Project proposal -- the noon of the 5th of November 2018
+- Final project -- 30th of November, 2018
+
+** Final project 2017/2                                           :noexport:
 
 The deadline for the final project is the 15th of December, 2017.
 
