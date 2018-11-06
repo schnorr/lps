@@ -213,7 +213,7 @@ knitr of R); datasets might be placed in the same repository where the
 documents are located.
 
 The deadlines:
-- Project proposal -- the noon of the 5th of November 2018
+- Project proposal -- the noon of the 8th of November 2018
 - Final project -- 30th of November, 2018
 
 ** Final project 2017/2                                           :noexport:
