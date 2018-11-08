@@ -1,0 +1,212 @@
+---
+title: "Analysing Banking dataser from Amazon"
+author: "Camil Samer Zahlan Redwan"
+date: "November 7, 2018"
+output: html_document
+---
+
+# Loading libraries 
+
+Those are the libraries required for running this R Markup document.
+I still don't understand the origin of this  conflict.
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+## Downloading the data
+
+This csv file is intended for machine learning tasks.
+This database provides "historical data for customers who have
+purchased products *similar*" to a new product that we launched in the market.
+The last column **y** of the table assign 1 if the customer subscribed
+to the new product and 0 if it doesn't subscribe.
+
+
+```{r}
+file = "banking.csv"
+if(!file.exists(file)){
+  download.file("https://s3.amazonaws.com/aml-sample-data/banking.csv",
+	destfile=file)
+}
+```
+
+# Reading the data
+
+The following two chunks of R code read the data.
+The first one give us more granularity and we explicitly define all factor
+values.
+
+I first tried toread all values with **col_character()**. But this approach
+has the disadvantages. **col_factor()** allows the *summary()* function to
+gives us a better data summary.
+
+By experience I konw that it is better to deal with the types of
+the columns at the beggining. Dealing with types while reading the CSV table
+give us more safety. If some type cohersion is not possible, we receive a warning.
+
+```{r}
+library(readr);
+df <- read_csv("banking.csv", locale=locale(encoding = "ISO-8859-1"), col_types=cols(
+  age=col_integer(),
+  job=col_character(),
+  marital=col_factor(levels = c("single", "married", "divorced", "unknown")),
+  education=col_character(),
+  default=col_factor(levels=c("unknown", "no", "yes")),
+  housing=col_character(),
+  loan=col_character(),
+  contact=col_character(),
+  month=col_character(),
+  day_of_week=col_factor(levels = c("mon", "tue", "wed","thu","fri")),
+  duration=col_integer(),
+  campaign=col_integer(),
+  pdays=col_integer(),
+  previous=col_integer(),
+  poutcome=col_character(),
+  emp_var_rate=col_double(),
+  cons_price_idx=col_double(),
+  cons_conf_idx=col_double(),
+  euribor3m=col_double(),
+  nr_employed=col_double(),
+  y=col_logical() ) )
+df;
+```
+
+```{r}
+library(readr);
+df <- read.csv("banking.csv", header=T, colClasses=c("integer", rep("factor",9), rep("integer", 4), "factor", rep("double", 5), "integer") ) ;
+df;
+```
+
+
+# Take a look in the data
+
+All seems ok. Indeed, the data is used by Amazon for a machine learning
+experiment, the data was expected to be high quality.
+
+```{r}
+summary(df)
+```
+
+
+# Here I start to try out some geom. Didn't formulate any kind of questions.
+
+```{r}
+df %>%
+  select(marital, age) %>%
+  ggplot() + geom_boxplot(aes(x=marital,y=age))
+```
+
+There are too much outliers in divorced, married and single
+groups.  Maybe violing could help us to better visualize.
+
+```{r}
+df %>%
+  select(marital, age) %>%
+  ggplot() + geom_violin(aes(x=marital,y=age))
+```
+
+We see from there that single are more likely to bee Amazon clients
+in youth. Let's take a look in the singles x age profile curve
+
+
+```{r}
+df %>%
+  select(marital, age) %>%
+  group_by(marital, age) %>%
+  summarise(n=n()) %>%
+  ggplot() + geom_line(aes(x=age, y=n, col=marital))
+```
+
+The same kind of graph could be used to investigate the relation between
+age and education.
+
+
+```{r}
+
+df %>%
+  select(education, age) %>%
+  ggplot() + geom_violin(aes(x=education,y=age))
+
+df %>%
+  select(education, age) %>%
+  group_by(education, age) %>%
+  summarise(n=n()) %>%
+  ggplot() + geom_line(aes(x=age, y=n, col=education))
+
+```
+
+The last plot shows that college students are the most proeminent
+clients of Amazon.
+
+# Clients likely to subscribe to our new product
+
+First we quantify how many clients subscribe to the new product
+from this database.
+```{r}
+df %>%
+  filter(y == 1) %>%
+  nrow()
+
+df %>%
+  filter(y==0) %>%
+  nrow()
+```
+
+We could summarise some features of those clients that do subscribe to
+our new product:
+
+```{r}
+df %>%
+  filter(y == 1) %>%
+  select(marital, job, housing, education, age) %>%
+  summary()
+
+df %>%
+  filter(y == 0) %>%
+  select(marital, job, housing, education, age) %>%
+  summary()
+```
+
+It is difficult to compare directly the two groups by this.
+
+```{r}
+df %>%
+  filter(y == 1) %>%
+  select(marital, job, housing, education, age) %>%
+  ggplot( aes(marital, fill=education) ) + geom_bar(position='fill')
+
+df %>%
+  filter(y == 0) %>%
+  select(marital, job, housing, education, age) %>%
+  ggplot( aes(marital, fill=education) ) + geom_bar(position='fill')
+```
+
+# Days of week more frequent
+
+Does the clients that subscribe to the new product has
+some preference regarding the day of week? Does they
+prefer to shopping on friday? Lets take a look in the data:
+
+```{r}
+
+df %>%
+  filter(y == 1) %>%
+  select(day_of_week) %>%
+  group_by(day_of_week) %>%
+  summarise(n=n()) %>%
+  ggplot(aes(x=day_of_week, y=n)) + geom_bar(stat="identity")
+
+df %>%
+  filter(y == 0) %>%
+  select(day_of_week) %>%
+  group_by(day_of_week) %>%
+  summarise(n=n()) %>%
+  ggplot(aes(x=day_of_week, y=n)) + geom_bar(stat="identity")
+
+df %>%
+  filter(y == 1) %>%
+  select(day_of_week,age) %>%
+  ggplot(aes(day_of_week, age) ) + geom_violin()
+```
+
