@@ -216,6 +216,41 @@ The deadlines:
 - Project proposal -- the noon of the 12th of November 2018
 - Final project -- 30th of November, 2018
 
+Evaluation process:
+
+1. Scientific question: formulation of an initial hypothesis,
+   proposition of a justified methodology, clear conclusion on the
+   hypothesis.
+2. Methodology question: how much the philosophy of the *literate
+   programming* is employed in the investigation and how much
+   reproducible it is.
+3. Technical skills: statistical skills, management of raw data and
+   data cleanup procedures (possibly using tidyr to get tidy data),
+   data transformation (dplyr), and data visualization (ggplot).
+4. Comunication: how much detailed and rich is the laboratory notebook
+   (the iceberk -- the bulk of the investigation), considering the
+   flow of idea and interpretation record, and how much consistent,
+   concise, and clear it is the final report (the tip of the
+   iceberg). The checklist for good graphics must be respected in all
+   communication activities.
+
+Each of the four aspects are equaly important in the evaluation process.
+
+| Aspect        | Criteria                    |
+|---------------+-----------------------------|
+| Scientific    | Scientific question         |
+| Methodology   | Literate Programming        |
+| Methodology   | Reproducibility             |
+| Technical     | Statistical Skills          |
+| Technical     | Data Cleanup \to Tidy (tidyr) |
+| Technical     | Data Transformation (dplyr) |
+| Technical     | Data Visualization (ggplot) |
+| Communication | LabBook                     |
+| Communication | Report                      |
+
+An e-mail should be sent to both professors by the deadline to inform
+of the availability of the file version in your public GIT repository.
+
 ** Final project 2017/2                                           :noexport:
 
 The deadline for the final project is the 15th of December, 2017.
