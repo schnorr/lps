@@ -12,71 +12,82 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-### Présentation du paradoxe
-À la cour de Florence, de nombreux jeux de société étaient alors pratiqués. Parmi ceux-ci, l’un faisait intervenir la somme des numéros sortis lors du lancer de trois dés. Le Duc de Toscane, qui avait sans doute observé un grand nombre de parties de ce jeu, avait constaté que la somme 10 était obtenue légèrement plus souvent que la somme 9. Le paradoxe, que le Duc avait exposé à Galilée, réside dans le fait qu’il y a autant de façons d’écrire 10 que 9 comme sommes de trois entiers compris entre 1 et 6
+### Paradox Presentation
 
-En effet, il y a 6 manières d'écrire 9 comme somme de 3 dés: 
+People from Florence, Italy, played many games a long time ago. Among these games, there was one that consisted in summing up the numbers that were obtained when three dices were throw. The duke of Tuscany, whom certainly have observed many three-dice throws, have reached the conclusion that the sum equals to 10 was more observed than the sum equals to 9. The paradox, presented to Galileo by the Duke, resides that there is the same amount of times to write 10 and 9 as the sum of three integers between 1 and 6.
+
+Indeed, there are 6 ways to write 9 as the sum of three 6-facet dices:
         1+2+6, 1+3+5, 1+4+4, 2+2+5, 2+3+4, 3+3+3
-et il y a 6 manières d'écrire 10 : 
+and there are also 6 ways to write 10:
         1+3+6, 1+4+5, 2+2+6, 2+3+5, 2+4+4, 3+3+4
 
-### Expérimentation 
-Construction de l'environnement de simulation: 
+### Experiments 
+
+Building the simulation environment:
 
 ```{r}
-# package
 library(dplyr);
 library(ggplot2);
 library(gridExtra);
 ```
 
 
-*générateur de dé à $k$ faces*: les appels successifs à la foncion Dice(faces,n) sont modélisés par une séquence de $n$ d variables aléatoires indépendantes de même loi uniforme dans $\{1,\cdots, faces\}$.
+#### The Dice
+
+Let's build a function to work as a generator of a dice called =Dice(k, n)=, where k is the number of facets, and the n is the number of times the dice is throw. So, when Dice is called, it returns n times an independent variable that follows the uniform law between 1 and k.
+
 
 ```{r}
-dice <- function(faces = 6, n = 100)
+dice <- function(k = 6, n = 100)
 {
-  sample(x = seq(from = 1, to = faces, by = 1), size=n, replace=TRUE);
+  sample(x = seq(from = 1, to = k, by = 1), size=n, replace=TRUE);
 }
 
-# génère 10 tirages d'un dé à 6 faces
+# generate 10 numbers of a dice with 6 facets
 dice(6,10)
 ```
 
-*Expérience du Duc de Toscane* : on génère un échantillon de $n$ observations de jetés de $3$ dés 
+### The Three-Dice experiment of the Duke of Tuscany
+
+We generate a sample of n observations from three dices:
+
 ```{r}
-experiment <- function (faces = 6, n = 100)
+experiment <- function (k = 6, n = 100)
 {
   set.seed(42)
-  dice1 <- dice(faces, n);
-  dice2 <- dice(faces, n);
-  dice3 <- dice(faces, n);
+  dice1 <- dice(k, n);
+  dice2 <- dice(k, n);
+  dice3 <- dice(k, n);
 
   data.frame(Dice1 = dice1,
              Dice2 = dice2,
              Dice3 = dice3);
 }
-# génère une expérience de 5 tirages de 3 dés à 6 faces
+# generate an experiment with 5 throws of three dices of 6 k
 experiment(6,5)
 ```
 
-### Somme de $3$ dés, répartition
-On génère une expérience et on calcule la somme des $3$ dés :
+#### Sum of the three dices, repartition
+
+We generate a experiment and calculate the sum of the three dices.
+
+We then calculate the number of occurrences of each possible value of the sum.
 
 ```{r}
 experiment(6,1000) %>% 
   mutate(Sum = Dice1 + Dice2 + Dice3) %>% 
   group_by(Sum) %>% 
   summarize(N=n());
-# calcule le nombre d'occurrences de chaque valeur possible de somme
 ```
 
-Visualisation de la distribution empirique des probabilités
-Faire l'essai avec plusieurs tailles d'échantillon, que peut-on remarquer ?
+We do the empirical (observed) visualization of the probabilities.
+
+Try to do with different sample sizes. What we can observe?
+
 ```{r}
-Toscane <- function(faces =6, n = 100)
+Toscane <- function(k =6, n = 100)
 {
-  experiment(faces,n) %>%
+  experiment(k,n) %>%
     mutate(Sum = Dice1 + Dice2 + Dice3) %>%
     ggplot(aes(x=as.factor(Sum))) +
     geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
@@ -93,15 +104,18 @@ lapply(function(taille) {
 grid.arrange(ncol = 2,grobs=.);
 
 ```
-### Calcul de l'erreur sur l'estimation
-#### Dépendance de la taille de l'échantillon
+
+#### Compute the estimation error
+
+The dependency on the sample size.
+
 ```{r,fig.height=5}
 
-Toscane_9_10_erreur <-function(faces = 6, n = 471, Confiance = 0.95 )
+Toscane_9_10_erreur <-function(k = 6, n = 471, Confiance = 0.95 )
 {
   Phi_alpha= qnorm(1-(1-Confiance)/2) ;
 
-  experiment(faces,n) %>%
+  experiment(k,n) %>%
     mutate(Sum = Dice1 + Dice2 + Dice3,Taille=n()) %>%
     group_by(Sum,Taille) %>%
     summarize(N=n()) %>%
@@ -121,18 +135,19 @@ Toscane_9_10_erreur <-function(faces = 6, n = 471, Confiance = 0.95 )
 
 list(100,1000,10000,100000,1000000) %>%
 lapply(function(taille) {
-  Toscane_9_10_erreur( n = taille , Confiance = 0.90)
+  Toscane_9_10_erreur( n = taille , Confiance = 0.9)
 }) %>%
 grid.arrange(ncol = 1,grobs=.);
 
 ```
+
 ```{r,fig.height=5}
 
-Toscane_9_10_erreur <-function(faces = 6, n = 1000, Confiance = 0.95 )
+Toscane_9_10_erreur <-function(k = 6, n = 1000, Confiance = 0.95 )
 {
   Phi_alpha= qnorm(1-(1-Confiance)/2) ;
 
-  experiment(faces,n) %>%
+  experiment(k,n) %>%
     mutate(Sum = Dice1 + Dice2 + Dice3,Taille=n()) %>%
     group_by(Sum,Taille) %>%
     summarize(N=n()) %>%
@@ -157,32 +172,32 @@ grid.arrange(ncol = 1,grobs=.);
 
 ```
 
-### Un peu de théorie
+### Theory
 
-Dans le problème du Duc de Toscane, on peut modéliser le problème et calculer les différentes probabilités.
+In the paradox of the Duke of Tuscany, we can model the problem and compute the different probabilities.
 
-#### Modèle
+#### Model
 
-On modélise le problème en représentant les lancers des 3 dés par 3 variables aléatoires $X_1,X_2,X_3$, indépendantes et  identiquement distribuées sur $\{1,2\cdots,6\}$. C'est à dire que pour 
+We model the problem by representing the throws of three dices by three random variables $X_1,X_2,X_3$, which are independent and identically distributed between $\{1,2\cdots,6\}$. So, for 
 $0\leq k \leq 6$
 \[
 \mathbb{P}(X_i=k)=\frac 16 \text{ pour } i\in\{1,2,3\} ;
 \]
-et que pour $0\leq k_1,k_2,k_3 \leq 6$
+and for $0\leq k_1,k_2,k_3 \leq 6$
 \[
 \mathbb{P}(X_1=k_1,X_2=k_2,X_3=k_3)= \mathbb{P}(X_1=k_1)\mathbb{P}(X_2=k_2)\mathbb{P}(X_3=k_3)=\frac 1 {6^3}.
 \]
-On obtient ainsi la loi uniforme sur l'ensemble $\{1,2,3,4,5,6\}^3$.
+We obtain the uniform law in the set $\{1,2,3,4,5,6\}^3$.
 
-On note $S= X_1+X_2+X_3$ la variable aléatoire représentant la somme des valeurs des 3 dés. Pour cela on peut regarder l'ensemble des triplets choisis dans $\{1,2,3,4,5,6\}^3$ et compter le nombre de triplets de somme $k$ avec $0\leq k\leq 18$.
+We observe that $S= X_1+X_2+X_3$ is the random variable representing the sum of three dices. We can take a look in the set of triplets chosen in $\{1,2,3,4,5,6\}^3$ and  count the number of triplets of sum $k$ with $0\leq k\leq 18$.
 
 ```{r}
-faces = 6 ;
+k = 6 ;
 
 d = data.frame();
-for (de1 in seq(1,faces)){
- for (de2 in seq(1,faces)){
-   for (de3 in seq(1,faces)){
+for (de1 in seq(1,k)){
+ for (de2 in seq(1,k)){
+   for (de3 in seq(1,k)){
      d <<- rbind(d, data.frame(Dice1 = de1, Dice2 = de2, Dice3 = de3));
    }
  }
@@ -205,10 +220,11 @@ ggplot(data=d_theorique, aes(x=as.factor(Sum), y = P)) +
 ```
 
 On reprend les expériences précédentes et on prend les histogrammes pour différentes tailles d'échantillons
+
 ```{r,fig.height=15}
-Toscane_avec_theorie <- function(faces =6, n = 100)
+Toscane_avec_theorie <- function(k =6, n = 100)
 {
-  experiment(faces,n) %>%
+  experiment(k,n) %>%
     mutate(Sum = Dice1 + Dice2 + Dice3) %>%
     ggplot(aes(x=as.factor(Sum))) +
     geom_point(data=d_theorique, aes(x=as.factor(Sum), y = P), shape = 21, colour = "red", fill = "white", size = 2, stroke = 3)+
@@ -227,29 +243,27 @@ lapply(function(taille) {
 grid.arrange(ncol = 2,grobs=.)
 ```
 
-### Que peut-on conclure ?
+### What can we conclude?
 
-L'erreur méthodologique dans l'énoncé proposé par le Duc de Toscane est de supposer que toute configuration 
-de valeurs de dés, ici un ensemble de 3 dés, a la même probabilité. Dans notre cas on peut calculer toutes les combinaisons (exercice : le faire et en triant avoir le nombre d'ensembles de 3 valeurs et leur somme).
+The methodological error proposed in the Duke of Tuscany is to suppose that all configurations of values of dices, here in the example of three dices, has the same probability. In our case, we can compute all combinations (exercise: do it and by ordering have the number of sets of three values and their sum).
 
-En fait, les ensembles de 3 valeurs n'ont pas la même probabilité d'apparition:
+The set of three values have not the same probability of appearing in the result:
 
-9 comme somme de 3 dés : 1+2+6 (6 triplets), 1+3+5 (6), 1+4+4 (3), 2+2+5 (3), 2+3+4 (6), 3+3+3 (1) 
+9 as a sum of three dices: 1+2+6 (6 triplets), 1+3+5 (6), 1+4+4 (3), 2+2+5 (3), 2+3+4 (6), 3+3+3 (1) 
 
-10 comme somme de 3 dés : 1+3+6 (6), 1+4+5 (6), 2+2+6 (3), 2+3+5 (6), 2+4+4 (3), 3+3+4 (3)
+10 as a sum of three dices: 1+3+6 (6), 1+4+5 (6), 2+2+6 (3), 2+3+5 (6), 2+4+4 (3), 3+3+4 (3)
 
-Par exemple 1+2+6  s'obtient  avec les triplets (1,2,6)  (1,6,2) (2,1,6) (2,6,1) (6,1,2) (6,2,1) 
+For example 1+2+6 can be obtained with the triplets (1,2,6)  (1,6,2) (2,1,6) (2,6,1) (6,1,2) (6,2,1).
 
-La probabilité d'observer 9 (respectivement 10) est $p_9= \frac {25}{6^3}=0.1157$ (respectivement $p_{10}= \frac {27}{6^3}=0.1250$). On observe donc que $p_9 < p_{10}$, comme supposé par le Duc de Toscane. La différence de ces deux probabilités est de $\frac 2 {6^3}=0.0093\simeq 1\%$, ce qui est faible. 
+The probability of observing 9 (10 respectively) is $p_9= \frac {25}{6^3}=0.1157$ (respectively $p_{10}= \frac {27}{6^3}=0.1250$). We observe that $p_9 < p_{10}$ like it was supposed by the Duke of Tuscany. The difference between these two probabilities is $\frac 2 {6^3}=0.0093\simeq 1\%$, something small.
 
-Le Duc explique sa conviction par l'observation, et certainement le relevé d'un très grand nombre de parties. Or d'après les intervalles de confiance calculés ci-dessus il faut une taille d'échantillon de l'ordre de $100000$ pour avoir un intervalle de confiance autour de chaque valeur estimée qui permette de séparer $p_9$ et $p_10$ avec une confiance de 95%. 
+The Duke explained his conviction by observation, and certainly he has made many throws. Indeed, we can see that by considering such confidence intervals at least a sample size of 100000 throws are necessary to separate $p_9$ et $p_10$ with a confidence interval of 95%. 
 
-Ayant réalisé autant d'observations, le Duc n'aurait pas manqué d'observer les fluctuations "naturelles" dans les estimateurs des probabilités $P_9$ et $p_10$. 
+By conducing so much observations, the Duke would not miss the "natural" fluctuations in the estimation of probabilities $P_9$ et $p_10$. 
 
-Enfin, il reste à supposer que les dés utilisés lors des 100.000 lancers étaient identiques, non biaisés, et que la  probabilités de chaque face soit $\frac 16$  avec une erreur largement inférieure à $1% (actuellement fabriquer des dés non-biaisés est un problème technologiquement très difficile). 
-Matériellement il était donc très difficile de répondre expérimentalement à cette question. 
+So, we need to suppose that dices used in the 100000 throws were identical, without bias, and that the probability of each face is $\frac 16$ with an error sufficiently inferior à $1%$ (in reality, it is hard to manufacture non-biased dices). So, it was indeed very difficult to answer to the paradox with experiments.
 
-Comment interpréter cette situation ? On peut resituer le contexte, au XVIième siècle, les mathématiciens établissaient leur réputation en se lançant des défis, par exemple  Girolamo Cardano (1501 - 1576) a tenu sa méthode de résolution d'équations de 3ième degré (de la forme $x^3+ax^2+bx+c=0$) secrète afin de pouvoir résoudre des problèmes que d'autres mathématiciens étaient incapable de résoudre (Lire par exemple _La formule secrète - le duel mathématique qui enflamma l'Italie de la Renaissance  de Fabio Toscano, edition Belin 2011_). On pourrait donc penser que le Duc de Toscane défiait Galilée sur le terrain de l'expérimentation, en sachant pertinemment le résultat théorique, n'ayant pas les outils de statistique qui apparaîtront plus tard au XVIII$^\text{ième}$ siècle (loi des erreurs  de Moivre et Laplace) puis au  XVIII$^\text{ième}$ avec Gauss. 
+How to understand this situation? We can come back to the context, of the XVI century, the mathematicians were able to established their reputation by launching challenges. For example, Girolamo Cardano (1501 - 1576) has kept secret his resolution method of equations of third degree (in the form $x^3+ax^2+bx+c=0$) to resolve problems that other mathematicions were incapable to resolve (for example you can read the book _La formule secrète - le duel mathématique qui enflamma l'Italie de la Renaissance  de Fabio Toscano, edition Belin 2011_). We could think that the Duke of Tuscany challenged the Galileo in the experiment terrain, by secretly knowing the theoretical results, without having the statistical tools that will appear only later in the XVIII century (the law of errors of Moivre and Laplace) and then in the XVIII century with Gauss.
 
-On pourrait également penser que Galilée, utilisant ce paradoxe comme introduction pédagogique, voulait donner  un caractère _aristocratique_ à la question et ainsi donner plus de force à sa  démonstration de l'intérêt du calcul analytique au dépend de l'approche purement expérimentale. Nous laisserons les historiens des sciences débattre de cette question.
+We could think that Galileo, using this paradox as pedagogical introduction, would like to give an aristocratic caractere to the question and strenghten the demonstration the usefulness of the analytical calculus instead of a purely experimental approach. We let this matter to the historians of science.
 
