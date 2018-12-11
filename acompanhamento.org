@@ -17,3 +17,155 @@
 #+LATEX_HEADER: \usepackage[margin=1cm]{geometry}
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
+
+* Final Project Evaluation
+** Methodology
+
+Notes between 0 and 20 for every criteria. All criteria has the same
+weight, so the sum of notes gives the final note. We normalized the
+notes from 0 to 10 and map to ``conceitos'' (by UFRGS rules) following
+this table (note that FF is given to students without sufficient
+presences).
+
+| From |   To | Conceito |
+|------+------+----------|
+|  9.0 | 10.0 | A        |
+|  7.5 |  8.9 | B        |
+|  6.0 |  7.4 | C        |
+|    0 |  5.9 | D        |
+
+** Criteria
+
+All criteria share the same weight in the evaluation.
+
+| Aspect        | Criteria                    |
+|---------------+-----------------------------|
+| Scientific    | Scientific question         |
+| Methodology   | Literate Programming        |
+| Methodology   | Reproducibility             |
+| Technical     | Statistical Skills          |
+| Technical     | Data Cleanup \to Tidy (tidyr) |
+| Technical     | Data Transformation (dplyr) |
+| Technical     | Data Visualization (ggplot) |
+| Communication | LabBook                     |
+| Communication | Report                      |
+** Details
+
+| Cartão | Aspect        | Criteria                    | Value |
+|--------+---------------+-----------------------------+-------|
+| ???050 | Scientific    | Scientific question         |    10 |
+| ???050 | Methodology   | Literate Programming        |    20 |
+| ???050 | Methodology   | Reproducibility             |    20 |
+| ???050 | Technical     | Statistical Skills          |    10 |
+| ???050 | Technical     | Data Cleanup - Tidy (tidyr) |    13 |
+| ???050 | Technical     | Data Transformation (dplyr) |    20 |
+| ???050 | Technical     | Data Visualization (ggplot) |    20 |
+| ???050 | Communication | LabBook                     |    18 |
+| ???050 | Communication | Report                      |    12 |
+| ???684 | Scientific    | Scientific question         |    11 |
+| ???684 | Methodology   | Literate Programming        |    20 |
+| ???684 | Methodology   | Reproducibility             |    19 |
+| ???684 | Technical     | Statistical Skills          |    10 |
+| ???684 | Technical     | Data Cleanup - Tidy (tidyr) |    17 |
+| ???684 | Technical     | Data Transformation (dplyr) |    18 |
+| ???684 | Technical     | Data Visualization (ggplot) |    14 |
+| ???684 | Communication | LabBook                     |    19 |
+| ???684 | Communication | Report                      |     5 |
+| ???587 | Scientific    | Scientific question         |    13 |
+| ???587 | Methodology   | Literate Programming        |    18 |
+| ???587 | Methodology   | Reproducibility             |    20 |
+| ???587 | Technical     | Statistical Skills          |    10 |
+| ???587 | Technical     | Data Cleanup - Tidy (tidyr) |    13 |
+| ???587 | Technical     | Data Transformation (dplyr) |    20 |
+| ???587 | Technical     | Data Visualization (ggplot) |    18 |
+| ???587 | Communication | LabBook                     |    15 |
+| ???587 | Communication | Report                      |    12 |
+| ???790 | Scientific    | Scientific question         |    20 |
+| ???790 | Methodology   | Literate Programming        |    20 |
+| ???790 | Methodology   | Reproducibility             |    20 |
+| ???790 | Technical     | Statistical Skills          |    18 |
+| ???790 | Technical     | Data Cleanup - Tidy (tidyr) |    15 |
+| ???790 | Technical     | Data Transformation (dplyr) |    20 |
+| ???790 | Technical     | Data Visualization (ggplot) |    17 |
+| ???790 | Communication | LabBook                     |    18 |
+| ???790 | Communication | Report                      |    20 |
+| ???311 | Scientific    | Scientific question         |    19 |
+| ???311 | Methodology   | Literate Programming        |    20 |
+| ???311 | Methodology   | Reproducibility             |    20 |
+| ???311 | Technical     | Statistical Skills          |    17 |
+| ???311 | Technical     | Data Cleanup - Tidy (tidyr) |    20 |
+| ???311 | Technical     | Data Transformation (dplyr) |    19 |
+| ???311 | Technical     | Data Visualization (ggplot) |    13 |
+| ???311 | Communication | LabBook                     |    18 |
+| ???311 | Communication | Report                      |    14 |
+| ???925 | Scientific    | Scientific question         |    13 |
+| ???925 | Methodology   | Literate Programming        |    14 |
+| ???925 | Methodology   | Reproducibility             |    12 |
+| ???925 | Technical     | Statistical Skills          |    10 |
+| ???925 | Technical     | Data Cleanup - Tidy (tidyr) |    13 |
+| ???925 | Technical     | Data Transformation (dplyr) |    13 |
+| ???925 | Technical     | Data Visualization (ggplot) |    13 |
+| ???925 | Communication | LabBook                     |     5 |
+| ???925 | Communication | Report                      |    13 |
+| ???317 | Scientific    | Scientific question         |    15 |
+| ???317 | Methodology   | Literate Programming        |    18 |
+| ???317 | Methodology   | Reproducibility             |    20 |
+| ???317 | Technical     | Statistical Skills          |    13 |
+| ???317 | Technical     | Data Cleanup - Tidy (tidyr) |    19 |
+| ???317 | Technical     | Data Transformation (dplyr) |    12 |
+| ???317 | Technical     | Data Visualization (ggplot) |    15 |
+| ???317 | Communication | LabBook                     |    15 |
+| ???317 | Communication | Report                      |    16 |
+| ???546 | Scientific    | Scientific question         |    19 |
+| ???546 | Methodology   | Literate Programming        |    20 |
+| ???546 | Methodology   | Reproducibility             |    20 |
+| ???546 | Technical     | Statistical Skills          |    20 |
+| ???546 | Technical     | Data Cleanup - Tidy (tidyr) |    16 |
+| ???546 | Technical     | Data Transformation (dplyr) |    16 |
+| ???546 | Technical     | Data Visualization (ggplot) |    16 |
+| ???546 | Communication | LabBook                     |    18 |
+| ???546 | Communication | Report                      |    18 |
+| ???924 | Scientific    | Scientific question         |    13 |
+| ???924 | Methodology   | Literate Programming        |    20 |
+| ???924 | Methodology   | Reproducibility             |    20 |
+| ???924 | Technical     | Statistical Skills          |    15 |
+| ???924 | Technical     | Data Cleanup - Tidy (tidyr) |    13 |
+| ???924 | Technical     | Data Transformation (dplyr) |    15 |
+| ???924 | Technical     | Data Visualization (ggplot) |    15 |
+| ???924 | Communication | LabBook                     |     5 |
+| ???924 | Communication | Report                      |    18 |
+| ???926 | Scientific    | Scientific question         |    13 |
+| ???926 | Methodology   | Literate Programming        |    12 |
+| ???926 | Methodology   | Reproducibility             |    12 |
+| ???926 | Technical     | Statistical Skills          |    12 |
+| ???926 | Technical     | Data Cleanup - Tidy (tidyr) |    10 |
+| ???926 | Technical     | Data Transformation (dplyr) |    13 |
+| ???926 | Technical     | Data Visualization (ggplot) |    15 |
+| ???926 | Communication | LabBook                     |     5 |
+| ???926 | Communication | Report                      |    14 |
+| ???689 | Scientific    | Scientific question         |     0 |
+| ???689 | Methodology   | Literate Programming        |     0 |
+| ???689 | Methodology   | Reproducibility             |     0 |
+| ???689 | Technical     | Statistical Skills          |     0 |
+| ???689 | Technical     | Data Cleanup - Tidy (tidyr) |     0 |
+| ???689 | Technical     | Data Transformation (dplyr) |     0 |
+| ???689 | Technical     | Data Visualization (ggplot) |     0 |
+| ???689 | Communication | LabBook                     |     0 |
+| ???689 | Communication | Report                      |     0 |
+** Summary
+
+| Cartão | FINAL | Conceito |
+|--------+-------+----------|
+| ???790 |  9.33 | A        |
+| ???546 |  9.06 | A        |
+| ???311 |  8.89 | B        |
+| ???050 |  7.94 | B        |
+| ???317 |  7.94 | B        |
+| ???587 |  7.72 | B        |
+| ???924 |  7.44 | B        |
+| ???684 |  7.39 | B        |
+| ???925 |  5.89 | C        |
+| ???926 |  5.89 | C        |
+| ???689 |     0 | D        |
+
+
