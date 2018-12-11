@@ -158,7 +158,7 @@ All criteria share the same weight in the evaluation.
 |--------+-------+----------|
 | ???790 |  9.33 | A        |
 | ???546 |  9.06 | A        |
-| ???311 |  8.89 | B        |
+| ???311 |  8.89 | A        |
 | ???050 |  7.94 | B        |
 | ???317 |  7.94 | B        |
 | ???587 |  7.72 | B        |
@@ -167,5 +167,6 @@ All criteria share the same weight in the evaluation.
 | ???925 |  5.89 | C        |
 | ???926 |  5.89 | C        |
 | ???689 |     0 | D        |
+
 
 
